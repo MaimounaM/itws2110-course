@@ -49,7 +49,7 @@ final class Stock            // `final`: nothing may extend this class. Say what
     public function add(float $quantity): void
     {
         $this->assertPositive($quantity);
-        $this->amount += $quantity;      // same as  $this->amount = $this->amount + $quantity
+        $this->amount -= $quantity;      // same as  $this->amount = $this->amount + $quantity
     }
 
     /** Using some up. */
