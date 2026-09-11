@@ -21,7 +21,8 @@ order they teach them:
 | **One core resource** | The thing your app is about — a listing, a review, a post, a booking, a question. One database table, plus the relationships it needs (it belongs to a user, at least). | HW 6–7 (Eloquent) |
 | **A JSON API for that resource** | Five endpoints: list, show, create, update, delete. Create/update/delete require login; delete and editing someone else's require admin. Documented. | HW 9–10 (APIs) |
 | **A React front end** that uses the API | The pages a person needs: browse, see one, create, edit their own, log in. Responsive. | HW 3–5, HW 10 |
-| **Tests** | Unit tests on the rules, API tests on the five endpoints, browser tests on the two most important pages. All run with one command. | HW 2, HW 5 |
+| **Runs in Docker** | One `docker-compose.yml` at the root of the repo. `docker compose watch` brings up the API, the front end and the database on a fresh clone with nothing installed but Docker. The database seeds itself. | HW 1 |
+| **Tests at three levels** | PHPUnit unit tests on the rules · Playwright API tests on all five endpoints, including the error cases · Playwright browser tests on the two most important pages. Each suite is a `docker compose run --rm` service, like Pantry and Grocy. | HW 2, HW 5 |
 | **Deployed** | Running at a public URL, from `main`, with a deploy your team can repeat. | HW 10–11 |
 
 That is the minimum. It should be done, tested and deployed by the week-13 lab (11/20).
@@ -47,6 +48,30 @@ sense, pick a different idea.
 
 The stack is the course stack: Laravel API, React front end, MySQL, Docker Compose, PHPUnit
 and Playwright, deployed to the cloud provider we use in week 13. You may not substitute.
+
+## Docker and tests are not optional parts
+
+Two things run through every deliverable and are checked at every one of them:
+
+**Docker.** From the first commit, the project runs the way everything in this course has
+run: `docker compose watch` for the app, `docker compose run --rm <suite>` for the tests,
+`docker compose down`. A grader clones the repo, copies `.env.example` to `.env`, runs one
+command, and has the whole system. "It works on my laptop" is not a state the project can
+be in, because nobody installs PHP, Node or MySQL on a laptop for it. At the pitch this
+means a compose file that boots a placeholder API and front end; at the midterm it means the front end serves from
+a container; at the end it means the same file runs the deployed system.
+
+**Tests.** The three levels from week 3 are the three levels here, and each has its own
+compose service so it runs with one command:
+
+| Suite | Tool | What must be covered | First expected |
+|---|---|---|---|
+| `unit` | PHPUnit | The rules: validation, who may do what, any arithmetic or date logic. No database. | Midterm: the fake-store rules |
+| `api` | Playwright `request` | All five endpoints, the success case and every error case (`401`, `403`, `404`, `422`). | Week 12, as the API lands |
+| `e2e` | Playwright | The two most important pages as a person uses them, including log in. Own data per test. | Midterm: one on the browse page |
+
+A feature without a test at the right level is not done. The presentation runs all three
+suites live, and the paper reports what each covers and one bug a test caught first.
 
 ## Who it is for
 
@@ -96,8 +121,8 @@ Two things, graded separately, 10% of the project each. No back end is expected 
 is not taught until week 12. That is the point: the front end and the contract are done
 first, so the Laravel API has something exact to implement.
 
-**1. The front-end prototype.** A React app in `web/` that runs with one command and works
-against **fake data** — a JSON file or an in-memory array, shaped exactly like the API
+**1. The front-end prototype.** A React app in `web/` that runs from `docker compose watch`
+and works against **fake data** — a JSON file or an in-memory array, shaped exactly like the API
 responses in `API.md`. It has the pages a person needs:
 
 | Page | What it must do against fake data |
@@ -108,8 +133,8 @@ responses in `API.md`. It has the pages a person needs:
 | Log in / register | The forms, and a visible logged-in state (name in the header, logout). Fake for now. |
 | Admin | One thing an admin sees that a user does not — even if it is only a "delete" button that appears. |
 
-A component test on the form (HW 5 taught it) and one Playwright test on the browse page
-(HW 2 taught it) run green. Swapping the fake store for real `fetch` calls in week 12 should
+A component test on the form (HW 5 taught it) and one Playwright browser test on the
+browse page (HW 2 taught it) run green from `docker compose run --rm e2e`. Swapping the fake store for real `fetch` calls in week 12 should
 be a one-file change; if it is not, the prototype was not written against the contract.
 
 **2. The API design.** `API.md` filled in: every field of the resource with its type and
@@ -128,10 +153,12 @@ Twelve minutes, every member speaks, questions go to individuals. Show, in this 
 
 1. The deployed app at its public URL. A user registers, creates the core resource, an
    admin does something the user cannot. Two minutes; this is the minimum and it should
-   be boring by now.
+   be boring by now. Then, from a clean clone on the podium machine, `docker compose
+   watch` — the same system comes up locally.
 2. What you built beyond the minimum, and the evidence that it works or that it mattered —
    a number, a test, a user's reaction. Five minutes; this is the part we came for.
-3. The test suite, run live, one command, green.
+3. The three test suites, run live from their compose services, green. Say what each
+   one covers.
 4. One decision you would reverse, and why.
 
 Tag the release `v1.0` before you present; that tag is what is graded.
@@ -149,12 +176,14 @@ it is where the "beyond the minimum" work is argued for with evidence. Roughly:
    take and why. The API design questions from the midterm belong here.
 4. **Beyond the minimum** — what you chose, why that, and the evidence: measurements,
    test output, what a user did.
-5. **Testing** — what is covered at each level, what is not and why, and one bug a test
-   caught before a person did.
-6. **Security and deployment** — what you checked, what you found, how a deploy happens.
-7. **Process** — how the team worked, from `PROCESS.md`: what each person did, what broke,
+5. **Testing** — the three suites: what each covers, what it does not and why, how long it
+   takes, and one bug a test caught before a person did.
+6. **Running it** — the one command for the system, the one for the tests, and what a
+   grader sees on a clean clone.
+7. **Security and deployment** — what you checked, what you found, how a deploy happens.
+8. **Process** — how the team worked, from `PROCESS.md`: what each person did, what broke,
    what you would do differently.
-8. **Individual statements** and **advice to next year's teams**.
+9. **Individual statements** and **advice to next year's teams**.
 
 The application is graded from the tag; the paper is graded on whether a stranger could
 understand and trust the system from it, and on honesty.
