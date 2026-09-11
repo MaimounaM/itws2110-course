@@ -13,8 +13,17 @@ data=/config/data
 mkdir -p "$data"
 if [ ! -f "$data/grocy.db" ]; then
   cp /seed/grocy.db "$data/grocy.db"
-  chown abc:users "$data/grocy.db" 2>/dev/null || true
   echo "[hw2] seeded the starting database (migrated, with demo data)"
+fi
+# 3. Make sure Grocy can write. PHP runs as user abc; the database file AND its
+#    folder must belong to abc (SQLite writes a journal file next to the db).
+#    Done on every boot, so a restart repairs a folder that got the wrong owner
+#    -- the symptom is "attempt to write a readonly database".
+rm -f "$data"/grocy.db-journal "$data"/grocy.db-wal "$data"/grocy.db-shm
+if chown -R abc:users "$data" && chmod -R u+rwX "$data"; then
+  echo "[hw2] /config/data owned by abc, writable"
+else
+  echo "[hw2] WARNING: could not make /config/data writable by abc -- Grocy will be read-only"
 fi
 f="$data/config.php"
 sed -i "s/Setting('DISABLE_AUTH', false);/Setting('DISABLE_AUTH', true);/" "$f"

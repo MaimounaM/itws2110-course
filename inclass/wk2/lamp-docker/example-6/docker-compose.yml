@@ -1,46 +1,37 @@
 services:
-  server:
-    build: ./simple-server
+  web:
+    build: ./docker/php-apache
     ports:
-      - "${APP_PORT:-3000}:3000"
+      - "${APP_PORT:-8080}:80"
     environment:
-      # The password never appears in this file. It comes from .env, which is
-      # gitignored. The :-defaults let the example run on a bare clone -- and
-      # they are what you would be shipping if you forgot to change them.
-      MONGO_URI: mongodb://${MONGO_USER:-app}:${MONGO_PASSWORD:-change_me}@mongo:27017/lab1?authSource=admin
+      DB_HOST: db
+      DB_NAME: ${MYSQL_DATABASE}
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
     depends_on:
-      mongo:
+      db:
         condition: service_healthy
     develop:
       watch:
-        # Node does not re-read a file mid-run the way PHP does, so a plain
-        # sync is not enough -- the process has to come back up.
-        - action: sync+restart
-          path: ./simple-server
-          target: /app
-          ignore:
-            - node_modules/
-        # A new dependency means npm install has to run again, which only
-        # happens during a build.
-        - action: rebuild
-          path: ./simple-server/package.json
+        - action: sync
+          path: ./src
+          target: /var/www/html
 
-  mongo:
-    image: mongo:8
+  db:
+    build: ./docker/mysql
     environment:
-      # Creates this user the FIRST time the data volume is empty -- and only
-      # then. Change the password after that and Mongo will not notice, for the
-      # same reason init.sql did not re-run in Example 2. down -v, then up.
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER:-app}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-change_me}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - mongo_data:/data/db
+      - db_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 5s
       timeout: 5s
       retries: 12
       start_period: 20s
 
 volumes:
-  mongo_data:
+  db_data:
