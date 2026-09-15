@@ -4,8 +4,8 @@
 
 | | |
 |---|---|
-| **Tue 9/15** | CSS frameworks. Why CSS is globally scoped and everything since has been a response to that: BEM, Bootstrap, Tailwind. [One page, five ways](../inclass/wk4/) — in-class exercise. Nothing to download if you did week 3. |
-| **Fri 9/18** | Lab. **Homework 2 due; Homework 3 assigned — a responsive build on a CSS framework.** |
+| **Tue 9/15** | CSS frameworks. Why CSS is globally scoped and everything since has been a response to that: BEM, Bootstrap, Tailwind. In class, your team presents one other framework — [instructions](../inclass/wk4/). [Slides](../slides/6_css_frameworks_v3.pdf) |
+| **Fri 9/18** | Lab. **Homework 2 due; [Homework 3](../homework/hw3/) assigned — CSS in the wild, then Bootstrap and Tailwind.** |
 
 ---
 
@@ -55,7 +55,7 @@ Both on the RPI library's O'Reilly platform.
 
 | | Due |
 |---|---|
-| In-class exercise | Tue 9/15, before you leave class |
+| In-class: group framework presentation (`.pptx` in `inclass/wk4/`) | Tue 9/15, before you leave class |
 | **Homework 2** — testing Grocy | **Fri 9/18, 11:59 PM** |
 
 Friday is a lab: bring your laptop with Docker Desktop running and Homework 2 in a state

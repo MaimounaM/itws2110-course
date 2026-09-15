@@ -4,8 +4,8 @@
 
 | | |
 |---|---|
-| **Tue 9/8** | Testing at three levels, on one small PHP app: use the app, read PHPUnit tests, write a prompt that gets an AI to write one, then API tests and a browser test with Playwright. Everything runs from one Docker image — [start it once before class](../inclass/wk3/README.md#before-class) so the 2 GB download is not in the room. In-class exercise. |
-| **Fri 9/11** | Lab. **Homework 1 due; Homework 2 assigned. Teams form.** |
+| **Tue 9/8** | Testing at three levels, on one small PHP app: use the app, read PHPUnit tests, write a prompt that gets an AI to write one, then API tests and a browser test with Playwright. Everything runs from one Docker image — [start it once before class](../inclass/wk3/README.md#before-class) so the 2 GB download is not in the room. In-class exercise. [Slides](../slides/4_testing.pdf) |
+| **Fri 9/11** | Lab. **Homework 1 due; Homework 2 assigned. Teams form.** [Slides](../slides/5_playwrite.pdf) |
 
 ---
 
