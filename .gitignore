@@ -2,3 +2,7 @@
 
 # Instructor-only notes live beside the material but never publish.
 INSTRUCTOR*.md
+.obsidian/core-plugins.json
+.obsidian/app.json
+.obsidian/appearance.json
+.obsidian/workspace.json
