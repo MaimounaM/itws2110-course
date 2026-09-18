@@ -155,7 +155,7 @@ docker run --name db1 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=app -p 3306:
 ```
 
 `-v db1_data:/var/lib/mysql` mounts a **named volume** — storage managed by Docker, living outside the container — over the directory where MySQL keeps its files. Recreate your table, then `docker rm -f db1` and run it again. This time the data is still there.
-
+'
 ```
 docker volume ls
 docker volume inspect db1_data
