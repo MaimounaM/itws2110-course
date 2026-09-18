@@ -37,3 +37,4 @@ td.num { font-variant-numeric: tabular-nums; }
 .shopping-list { margin-top: 2rem; padding: 1rem; background: #f7f7f7; border-radius: 6px; }
 .shopping-list h2 { margin: 0 0 .5rem; font-size: 1rem; }
 .shopping-list ul { margin: 0; padding-left: 1.2rem; }
+.shopping-list .badge { background: #e5e5e5; color: #333; }

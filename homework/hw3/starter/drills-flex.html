@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HW3 — Flexbox drills</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+<div class="max-w-3xl mx-auto p-6">
+
+  <h1 class="text-2xl font-bold">Flexbox drills</h1>
+  <p class="mt-2 text-gray-600">
+    Nine containers. Each one needs Tailwind classes added to the element marked
+    <code class="font-mono text-sm">&lt;!-- YOUR CLASSES --&gt;</code> so the boxes land where the goal says.
+    Edit this file in VS Code, save, reload the page. The checks below grade themselves.
+  </p>
+  <p class="mt-3 rounded border border-amber-600 bg-amber-50 p-3 text-sm">
+    <strong>Do this file in VS Code, not in Tailwind Play.</strong> Play takes a snippet of
+    markup; this is a whole document with a checking script, so the counter will not run
+    there. Open the <code class="font-mono">homework/hw3/</code> folder in VS Code, then
+    right-click this file &rarr; <em>Open with Live Server</em> and put the editor and the
+    browser side by side.
+  </p>
+  <div class="mt-4 rounded border border-teal-700 bg-teal-50 p-4 text-sm">
+    <p class="font-bold">Read this first</p>
+    <p class="mt-1">
+      Open
+      <a href="https://tailwindcss.com/docs/justify-content" target="_blank" rel="noopener"
+         class="text-teal-700 underline font-bold">Tailwind docs — justify-content</a>
+      and spend two minutes on it before drill 1. Every Tailwind class has a page laid out
+      the same way: a table of every class and the exact CSS it compiles to, then a live
+      example, then a note on using it at a breakpoint.
+    </p>
+    <p class="mt-2">
+      Once you can read one of these pages you can answer every drill below from the
+      documentation rather than from memory — which is the habit worth taking out of this
+      assignment. Each drill links the page it needs.
+    </p>
+  </div>
+
+  <p id="score" class="mt-4 font-bold"></p>
+
+  <!-- ============ 1 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">1. Make it a row</h2>
+      <a href="https://tailwindcss.com/docs/display" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: display</a>
+    </div>
+    <p class="text-sm text-gray-600">The boxes are stacked because a div is a block. Put them in a row.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3 h-40">
+      <!-- YOUR CLASSES -->
+      <div id="d1" class="">
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+      </div>
+    </div>
+    <p data-status="d1" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 2 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">2. Push them to the centre</h2>
+      <a href="https://tailwindcss.com/docs/justify-content" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: justify-content</a>
+    </div>
+    <p class="text-sm text-gray-600">Keep the row. Group all three in the middle of the container.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3 h-40">
+      <!-- YOUR CLASSES -->
+      <div id="d2" class="">
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+      </div>
+    </div>
+    <p data-status="d2" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 3 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">3. First left, last right</h2>
+      <a href="https://tailwindcss.com/docs/justify-content" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: justify-content</a>
+    </div>
+    <p class="text-sm text-gray-600">One box hard against each end, the third spaced evenly between. This is the header from Task 1.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3 h-40">
+      <!-- YOUR CLASSES -->
+      <div id="d3" class="">
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+      </div>
+    </div>
+    <p data-status="d3" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 4 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">4. Equal space around each one</h2>
+      <a href="https://tailwindcss.com/docs/justify-content" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: justify-content</a>
+    </div>
+    <p class="text-sm text-gray-600">Every box gets the same amount of space on both of its sides. Not the same as drill 3 — look closely at the ends.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3 h-40">
+      <!-- YOUR CLASSES -->
+      <div id="d4" class="">
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+      </div>
+    </div>
+    <p data-status="d4" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 5 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">5. Line up the middles</h2>
+      <a href="https://tailwindcss.com/docs/align-items" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: align-items</a>
+    </div>
+    <p class="text-sm text-gray-600">The boxes are different heights. Put them all on one invisible middle line.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3 h-28">
+      <!-- YOUR CLASSES -->
+      <div id="d5" class="flex h-full">
+        <div class="bg-teal-600 w-16 h-16 rounded"></div>
+        <div class="bg-teal-600 w-16 h-8 rounded"></div>
+        <div class="bg-teal-600 w-16 h-12 rounded"></div>
+      </div>
+    </div>
+    <p data-status="d5" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 6 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">6. Put space between them</h2>
+      <a href="https://tailwindcss.com/docs/gap" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: gap</a>
+    </div>
+    <p class="text-sm text-gray-600">The boxes are touching. Separate them without adding a margin to any box. <strong>Flexbox Froggy never teaches this one</strong> — it is newer than the game.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3 h-28">
+      <!-- YOUR CLASSES -->
+      <div id="d6" class="flex">
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+      </div>
+    </div>
+    <p data-status="d6" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 7 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">7. Turn the row into a column</h2>
+      <a href="https://tailwindcss.com/docs/flex-direction" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: flex-direction</a>
+    </div>
+    <p class="text-sm text-gray-600">Same container, stacked top to bottom instead of left to right.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3 h-44">
+      <!-- YOUR CLASSES -->
+      <div id="d7" class="flex gap-2">
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+      </div>
+    </div>
+    <p data-status="d7" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 8 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">8. Now the axes have swapped</h2>
+      <a href="https://tailwindcss.com/docs/align-items" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: align-items</a>
+    </div>
+    <p class="text-sm text-gray-600">
+      Keep it a column, and centre the boxes <em>horizontally</em>. Careful: in a column,
+      <code class="font-mono">items-*</code> is the horizontal one.
+    </p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3 h-44">
+      <!-- YOUR CLASSES -->
+      <div id="d8" class="flex flex-col gap-2 h-full">
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+      </div>
+    </div>
+    <p data-status="d8" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 9 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">9. Dead centre</h2>
+      <a href="https://tailwindcss.com/docs/justify-content" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: justify-content</a>
+    </div>
+    <p class="text-sm text-gray-600">One box, centred both ways. Two classes on the container.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3 h-44">
+      <!-- YOUR CLASSES -->
+      <div id="d9" class="flex h-full">
+        <div class="bg-teal-600 w-16 h-10 rounded"></div>
+      </div>
+    </div>
+    <p data-status="d9" class="mt-1 text-sm"></p>
+  </section>
+
+  <p class="mt-10 text-sm text-gray-500">
+    When all nine pass, you have everything Task 1 of the homework needs. Next:
+    <a href="drills-grid.html" class="text-teal-700 underline">the grid drills</a>.
+  </p>
+</div>
+
+<script>
+// Each drill is checked by what the browser actually computed, not by which class
+// you typed -- the same idea as the tests in week 3. Any answer that produces the
+// right layout passes.
+const DRILLS = [
+  { id: "d1", test: cs => cs.display === "flex" },
+  { id: "d2", test: cs => cs.display === "flex" && cs.justifyContent === "center" },
+  { id: "d3", test: cs => cs.display === "flex" && cs.justifyContent === "space-between" },
+  { id: "d4", test: cs => cs.display === "flex" && cs.justifyContent === "space-around" },
+  { id: "d5", test: cs => cs.display === "flex" && cs.alignItems === "center" },
+  { id: "d6", test: cs => cs.display === "flex" && parseFloat(cs.columnGap) > 0 },
+  { id: "d7", test: cs => cs.display === "flex" && cs.flexDirection === "column" },
+  { id: "d8", test: cs => cs.flexDirection === "column" && cs.alignItems === "center" },
+  { id: "d9", test: cs => cs.display === "flex" && cs.justifyContent === "center" && cs.alignItems === "center" },
+];
+
+function check() {
+  let passed = 0;
+  for (const drill of DRILLS) {
+    const el = document.getElementById(drill.id);
+    const out = document.querySelector(`[data-status="${drill.id}"]`);
+    const cheated = el.hasAttribute("style");
+    const ok = !cheated && drill.test(getComputedStyle(el));
+    if (ok) passed++;
+    out.textContent = cheated
+      ? "✗  use classes, not a style attribute — the homework does not allow inline styles"
+      : ok ? "✓  correct" : "✗  not yet";
+    out.className = "mt-1 text-sm font-bold " + (ok ? "text-green-700" : "text-red-700");
+  }
+  const score = document.getElementById("score");
+  score.textContent = `${passed} of ${DRILLS.length} passing`;
+  score.className = "mt-4 font-bold " + (passed === DRILLS.length ? "text-green-700" : "text-gray-700");
+}
+
+// Tailwind's browser build generates the CSS after this script first runs, so
+// check once it has settled.
+window.addEventListener("load", () => setTimeout(check, 300));
+
+// Re-check if you edit a class live in DevTools. This watches ONLY the nine
+// containers: pointed at the whole page it would see check() writing its own
+// results and call itself forever.
+const observer = new MutationObserver(() => setTimeout(check, 0));
+for (const drill of DRILLS) {
+  observer.observe(document.getElementById(drill.id), {
+    attributes: true, attributeFilter: ["class", "style"],
+  });
+}
+</script>
+
+</body>
+</html>

@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Tue 9/15** | CSS frameworks. Why CSS is globally scoped and everything since has been a response to that: BEM, Bootstrap, Tailwind. In class, your team presents one other framework — [instructions](../inclass/wk4/). [Slides](../slides/6_css_frameworks_v3.pdf) |
-| **Fri 9/18** | Lab. **Homework 2 due; [Homework 3](../homework/hw3/) assigned — CSS in the wild, then Bootstrap and Tailwind.** |
+| **Fri 9/18** | Lab. **Homework 2 due; [Homework 3](../homework/hw3/) assigned — flexbox, grid, and breakpoints in Tailwind.** |
 
 ---
 
@@ -47,7 +47,7 @@ summarises it; this is the original.
 Both on the RPI library's O'Reilly platform.
 
 - Noel Rappin, [*Modern CSS with Tailwind*, 2nd ed.](https://learning-oreilly-com.libproxy.rpi.edu/library/view/modern-css-with/9781680509892/) — 102 pages. Chapters 1–2 for the utility idea, chapter 7 for breakpoints. It covers Tailwind 3; Tailwind 4 moved configuration into CSS, so the setup chapter is dated and the class names are not.
-- Ben Frain, [*Responsive Web Design with HTML5 and CSS*, 5th ed.](https://learning-oreilly-com.libproxy.rpi.edu/library/view/responsive-web-design/9781837028238/) (2025) — chapters 3 (media and container queries), 4 (flexbox), 5 (grid). The responsive fundamentals under any framework.
+- Ben Frain, [*Responsive Web Design with HTML5 and CSS*, 5th ed.](https://learning-oreilly-com.libproxy.rpi.edu/library/view/responsive-web-design/9781837028238/) (2025) — chapter 4 is flexbox (HW3 Task 1), chapter 5 is grid (Task 2), chapter 3 is media queries (Task 3). One chapter per task, in the CSS underneath the Tailwind class names.
 
 ---
 
