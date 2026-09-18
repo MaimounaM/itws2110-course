@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HW3 — Grid drills</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+<div class="max-w-3xl mx-auto p-6">
+
+  <h1 class="text-2xl font-bold">Grid drills</h1>
+  <p class="mt-2 text-gray-600">
+    Seven containers. Same rules as the flexbox drills: fill in the empty
+    <code class="font-mono text-sm">class=""</code> so the boxes land where the goal says,
+    save, reload. Do <a href="drills-flex.html" class="text-teal-700 underline">the flexbox
+    drills</a> first.
+  </p>
+  <p class="mt-3 rounded border border-amber-600 bg-amber-50 p-3 text-sm">
+    <strong>Do this file in VS Code, not in Tailwind Play.</strong> Play takes a snippet of
+    markup; this is a whole document with a checking script, so the counter will not run
+    there. Open the <code class="font-mono">homework/hw3/</code> folder in VS Code, then
+    right-click this file &rarr; <em>Open with Live Server</em> and put the editor and the
+    browser side by side.
+  </p>
+  <div class="mt-4 rounded border border-teal-700 bg-teal-50 p-4 text-sm">
+    <p class="font-bold">Read this first</p>
+    <p class="mt-1">
+      Open
+      <a href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noopener"
+         class="text-teal-700 underline font-bold">Tailwind docs — grid-template-columns</a>
+      before drill 1. Same layout as the flexbox pages: the class table, a live example, and
+      at the bottom a responsive example — which is drill 6 almost exactly.
+    </p>
+    <p class="mt-2">
+      Each drill links the page it needs. Check your answer against that page's table: the
+      CSS column tells you what you actually asked the browser for.
+    </p>
+  </div>
+
+  <p id="score" class="mt-4 font-bold"></p>
+  <p class="text-sm text-gray-500">
+    Window width: <span id="vw" class="font-mono font-bold"></span> —
+    drills 6 and 7 change their answer at 768 px. Resize and they should stay green on both sides.
+  </p>
+
+  <!-- ============ 1 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">1. Three columns</h2>
+      <a href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: grid-template-columns</a>
+    </div>
+    <p class="text-sm text-gray-600">Six boxes, three across. They will wrap onto a second row by themselves.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3">
+      <!-- YOUR CLASSES -->
+      <div id="g1" class="">
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+      </div>
+    </div>
+    <p data-status="g1" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 2 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">2. Space the cells apart</h2>
+      <a href="https://tailwindcss.com/docs/gap" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: gap</a>
+    </div>
+    <p class="text-sm text-gray-600">The boxes are touching. One class separates them both across and down.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3">
+      <!-- YOUR CLASSES -->
+      <div id="g2" class="grid grid-cols-3">
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+      </div>
+    </div>
+    <p data-status="g2" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 3 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">3. Two columns instead</h2>
+      <a href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: grid-template-columns</a>
+    </div>
+    <p class="text-sm text-gray-600">Same six boxes, two across, three rows. Change one number.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3">
+      <!-- YOUR CLASSES -->
+      <div id="g3" class="grid gap-4">
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+      </div>
+    </div>
+    <p data-status="g3" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 4 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">4. One box, two columns wide</h2>
+      <a href="https://tailwindcss.com/docs/grid-column" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: grid-column</a>
+    </div>
+    <p class="text-sm text-gray-600">
+      The grid stays at three columns. Make the <strong>dark</strong> box take up two of them.
+      This class goes on the box, not on the container — the only drill where that is true.
+    </p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3">
+      <div class="grid grid-cols-3 gap-4">
+        <!-- YOUR CLASSES (on the box below) -->
+        <div id="g4" class="bg-teal-900 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+      </div>
+    </div>
+    <p data-status="g4" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 5 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">5. One box, two rows tall</h2>
+      <a href="https://tailwindcss.com/docs/grid-row" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: grid-row</a>
+    </div>
+    <p class="text-sm text-gray-600">Same idea, the other direction. Make the dark box span two rows.</p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3">
+      <div class="grid grid-cols-3 gap-4">
+        <!-- YOUR CLASSES (on the box below) -->
+        <div id="g5" class="bg-teal-900 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+      </div>
+    </div>
+    <p data-status="g5" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 6 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">6. One column on a phone, three on a laptop</h2>
+      <a href="https://tailwindcss.com/docs/responsive-design" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: responsive design</a>
+    </div>
+    <p class="text-sm text-gray-600">
+      This is Task 2 of the homework. Write the phone layout with no prefix, then add the
+      wide-screen one with <code class="font-mono">md:</code>. Resize the window past 768 px
+      to check both.
+    </p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3">
+      <!-- YOUR CLASSES -->
+      <div id="g6" class="gap-4">
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+        <div class="bg-teal-600 h-12 rounded"></div>
+      </div>
+    </div>
+    <p data-status="g6" class="mt-1 text-sm"></p>
+  </section>
+
+  <!-- ============ 7 ============ -->
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="font-bold">7. Article and sidebar</h2>
+      <a href="https://tailwindcss.com/docs/grid-column" target="_blank" rel="noopener"
+         class="text-xs text-teal-700 underline shrink-0">docs: grid-column</a>
+    </div>
+    <p class="text-sm text-gray-600">
+      Task 3 of the homework. Stacked below 768 px. At 768 and up, three columns with the
+      dark article taking two of them and the sidebar taking one. Two classes: one on the
+      container, one on the article.
+    </p>
+    <div class="mt-2 border-2 border-dashed border-gray-400 rounded p-3">
+      <!-- YOUR CLASSES (container) -->
+      <div id="g7" class="grid gap-4">
+        <!-- YOUR CLASSES (article) -->
+        <div id="g7a" class="bg-teal-900 h-16 rounded"></div>
+        <div class="bg-teal-600 h-16 rounded"></div>
+      </div>
+    </div>
+    <p data-status="g7" class="mt-1 text-sm"></p>
+  </section>
+
+  <p class="mt-10 text-sm text-gray-500">
+    When all seven pass, Tasks 2 and 3 of the homework are the same two answers on real content.
+  </p>
+</div>
+
+<script>
+// Checked by what the browser computed and by where things actually ended up on
+// screen, not by which class you typed. Any answer producing the right layout passes.
+function colCount(cs) {
+  const t = cs.gridTemplateColumns;
+  return (!t || t === "none") ? 1 : t.split(" ").length;
+}
+const wide = () => window.innerWidth >= 768;
+
+const DRILLS = [
+  { id: "g1", test: cs => cs.display === "grid" && colCount(cs) === 3 },
+  { id: "g2", test: cs => cs.display === "grid" && parseFloat(cs.columnGap) > 0 && parseFloat(cs.rowGap) > 0 },
+  { id: "g3", test: cs => cs.display === "grid" && colCount(cs) === 2 },
+  // spans are checked by measuring: the dark box has to actually be wider/taller
+  { id: "g4", test: (cs, el) => {
+      const sib = el.nextElementSibling;
+      return el.offsetWidth > sib.offsetWidth * 1.5;
+  }},
+  { id: "g5", test: (cs, el) => {
+      const sib = el.nextElementSibling;
+      return el.offsetHeight > sib.offsetHeight * 1.5;
+  }},
+  { id: "g6", test: cs => cs.display === "grid" && colCount(cs) === (wide() ? 3 : 1),
+    note: "resize past 768 px — it should stay green on both sides" },
+  { id: "g7", test: (cs, el) => {
+      const article = document.getElementById("g7a");
+      const aside = article.nextElementSibling;
+      if (cs.display !== "grid") return false;
+      return wide()
+        ? colCount(cs) === 3 && article.offsetWidth > aside.offsetWidth * 1.5
+        : colCount(cs) === 1 && article.offsetTop < aside.offsetTop;
+    },
+    note: "resize past 768 px — stacked below, two thirds / one third above" },
+];
+
+function check() {
+  let passed = 0;
+  for (const drill of DRILLS) {
+    const el = document.getElementById(drill.id);
+    const out = document.querySelector(`[data-status="${drill.id}"]`);
+    const cheated = el.hasAttribute("style");
+    const ok = !cheated && drill.test(getComputedStyle(el), el);
+    if (ok) passed++;
+    out.textContent = cheated
+      ? "✗  use classes, not a style attribute — the homework does not allow inline styles"
+      : ok ? "✓  correct" + (drill.note ? "  (" + drill.note + ")" : "")
+           : "✗  not yet" + (drill.note ? "  (" + drill.note + ")" : "");
+    out.className = "mt-1 text-sm font-bold " + (ok ? "text-green-700" : "text-red-700");
+  }
+  const score = document.getElementById("score");
+  score.textContent = `${passed} of ${DRILLS.length} passing`;
+  score.className = "mt-4 font-bold " + (passed === DRILLS.length ? "text-green-700" : "text-gray-700");
+  document.getElementById("vw").textContent = window.innerWidth + " px";
+}
+
+// Tailwind's browser build generates the CSS after this script first runs, so
+// check once it has settled.
+window.addEventListener("load", () => setTimeout(check, 300));
+// Drills 6 and 7 depend on the window width.
+window.addEventListener("resize", () => setTimeout(check, 50));
+
+// Re-check if you edit a class live in DevTools. This watches ONLY the drill
+// elements: pointed at the whole page it would see check() writing its own
+// results and call itself forever.
+const observer = new MutationObserver(() => setTimeout(check, 0));
+for (const drill of DRILLS) {
+  observer.observe(document.getElementById(drill.id), {
+    attributes: true, attributeFilter: ["class", "style"],
+  });
+}
+observer.observe(document.getElementById("g7a"), {
+  attributes: true, attributeFilter: ["class", "style"],
+});
+</script>
+
+</body>
+</html>
