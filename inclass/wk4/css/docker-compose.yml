@@ -1,0 +1,32 @@
+# One image (see Dockerfile), two ways to run it.
+#
+#   docker compose watch              the pages at http://localhost:8080 -- edits sync in as you save
+#   docker compose run --rm shots     photograph every version at phone, tablet and desktop widths -> shots/
+#   docker compose down               stop
+
+services:
+  web:
+    build: .
+    image: wk4-css
+    ports:
+      - "${APP_PORT:-8080}:80"
+    develop:
+      watch:
+        - action: sync
+          path: ./public
+          target: /app/public
+        - action: rebuild
+          path: ./Dockerfile
+        - action: rebuild
+          path: ./docker/apache.conf
+
+  # A one-shot job. Starts its own Apache inside the container, opens each
+  # page in Chromium at three widths, and writes PNGs into shots/.
+  shots:
+    build: .
+    image: wk4-css
+    profiles: [test]
+    volumes:
+      - ./public:/app/public
+      - ./shots:/app/shots
+    command: sh -c "apache2ctl start && sleep 1 && node shots/screenshot.js"

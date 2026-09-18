@@ -32,7 +32,7 @@ services:
     volumes:
       - pantry_data:/app/data       # a named volume, like the database in Homework 1
     ports:
-      - "${APP_PORT:-8080}:80"
+      - 8090:80
     develop:
       watch:
         - action: sync

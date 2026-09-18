@@ -110,7 +110,27 @@ final class StockTest extends TestCase
 
         $stock->consume(-2);                                        // act
     }
+    public function test_using_more_than_is_in_stock_is_refused(): void
+    {
+        $stock = new Stock(2);
 
+        $this->expectException(InsufficientStockException::class);
+        $this->expectExceptionMessage('Not enough in stock');
+
+        $stock->consume(5);
+    }
+
+    public function test_a_refused_use_leaves_the_amount_unchanged(): void
+    {
+        $stock = new Stock(2);
+
+        try {
+            $stock->consume(5);
+        } catch (InsufficientStockException) {
+        }
+
+        $this->assertSame(2.0, $stock->amount());
+    }
     // Something is missing from this file. Part 2 is about finding it.
 
     public function test_using_more_than_is_in_stock_is_refused(): void

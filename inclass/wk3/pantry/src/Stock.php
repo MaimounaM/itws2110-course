@@ -56,7 +56,11 @@ final class Stock            // `final`: nothing may extend this class. Say what
     public function consume(float $quantity): void
     {
         $this->assertPositive($quantity);
+        if ($quantity > $this->amount) {
+            throw new InsufficientStockException('Not enough in stock');
+        }
         $this->amount -= $quantity;
+       
     }
 
     /**

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pantry — BEM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1 class="site-header__title">Pantry</h1>
+    <nav class="site-nav">
+      <a href="#" class="site-nav__link site-nav__link--active">Stock</a>
+      <a href="#" class="site-nav__link">Shopping list</a>
+      <a href="#" class="site-nav__link">Products</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="note">Tuesday, September 15. Seven products; two have gone off.</p>
+
+    <p class="alert alert--error" role="alert">Not enough in stock.</p>
+
+    <form class="product-form" id="new-product">
+      <label class="product-form__field">Name <input class="product-form__input" name="name" placeholder="e.g. Milk"></label>
+      <label class="product-form__field">Best before <input class="product-form__input" name="best_before" type="date"></label>
+      <button class="button button--primary" type="submit">Add product</button>
+    </form>
+
+    <table class="stock-table" id="products">
+      <thead>
+        <tr><th class="stock-table__heading">Product</th><th class="stock-table__heading">In stock</th><th class="stock-table__heading">Best before</th><th class="stock-table__heading"></th><th class="stock-table__heading">Buy</th><th class="stock-table__heading">Use</th></tr>
+      </thead>
+      <tbody>
+        <tr class="stock-table__row"><td class="stock-table__cell">Bread</td><td class="stock-table__cell stock-table__cell--number">1</td><td class="stock-table__cell">2026-09-13</td><td class="stock-table__cell"><span class="shelf-label shelf-label--expired">expired</span></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Buy</button></form></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Use</button></form></td></tr>
+        <tr class="stock-table__row"><td class="stock-table__cell">Butter</td><td class="stock-table__cell stock-table__cell--number">1</td><td class="stock-table__cell">2026-09-17</td><td class="stock-table__cell"><span class="shelf-label shelf-label--due-soon">due soon</span></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Buy</button></form></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Use</button></form></td></tr>
+        <tr class="stock-table__row"><td class="stock-table__cell">Cheese</td><td class="stock-table__cell stock-table__cell--number">0.5</td><td class="stock-table__cell">2026-09-30</td><td class="stock-table__cell"><span class="shelf-label shelf-label--fresh">fresh</span></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Buy</button></form></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Use</button></form></td></tr>
+        <tr class="stock-table__row"><td class="stock-table__cell">Eggs</td><td class="stock-table__cell stock-table__cell--number">12</td><td class="stock-table__cell">2026-09-19</td><td class="stock-table__cell"><span class="shelf-label shelf-label--due-soon">due soon</span></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Buy</button></form></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Use</button></form></td></tr>
+        <tr class="stock-table__row"><td class="stock-table__cell">Milk</td><td class="stock-table__cell stock-table__cell--number">2.5</td><td class="stock-table__cell">2026-09-25</td><td class="stock-table__cell"><span class="shelf-label shelf-label--fresh">fresh</span></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Buy</button></form></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Use</button></form></td></tr>
+        <tr class="stock-table__row"><td class="stock-table__cell">Rice</td><td class="stock-table__cell stock-table__cell--number">0</td><td class="stock-table__cell">—</td><td class="stock-table__cell"><span class="shelf-label">no date</span></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Buy</button></form></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Use</button></form></td></tr>
+        <tr class="stock-table__row"><td class="stock-table__cell">Yogurt</td><td class="stock-table__cell stock-table__cell--number">4</td><td class="stock-table__cell">2026-09-08</td><td class="stock-table__cell"><span class="shelf-label shelf-label--expired">expired</span></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Buy</button></form></td><td class="stock-table__cell"><form class="amount-form"><input class="amount-form__input" type="number" value="1"><button class="button">Use</button></form></td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <aside class="shopping-list">
+    <h2 class="shopping-list__title">Shopping list</h2>
+    <ul class="shopping-list__items">
+      <li class="shopping-list__item">Rice <span class="shopping-list__count">2</span></li>
+      <li class="shopping-list__item">Bread <span class="shopping-list__count shopping-list__count--urgent">1</span></li>
+      <li class="shopping-list__item">Coffee <span class="shopping-list__count">1</span></li>
+    </ul>
+  </aside>
+
+</body>
+</html>

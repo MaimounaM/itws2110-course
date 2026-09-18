@@ -1,0 +1,47 @@
+/* Pantry in BEM: Block__Element--Modifier. Every selector is ONE class, so
+   nothing ever has higher specificity than anything else, and a block's
+   styles cannot reach into another block. The cost is on the other side of
+   the file: read index.html and count the class names. */
+
+body { font-family: system-ui, sans-serif; max-width: 52rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; color: #222; }
+
+/* site-header block */
+.site-header { display: flex; align-items: baseline; gap: 2rem; border-bottom: 1px solid #ddd; padding-bottom: .5rem; }
+.site-header__title { margin: 0; font-size: 1.6rem; }
+.site-nav__link { margin-right: 1rem; color: #555; text-decoration: none; }
+.site-nav__link--active { color: #111; font-weight: 600; border-bottom: 2px solid #111; }
+
+/* generic blocks */
+.note { color: #666; font-size: .85rem; }
+.alert { padding: .6rem .8rem; border-radius: 4px; }
+.alert--error { color: #b00020; background: #fdecec; }
+.button { padding: .4rem .8rem; border: 1px solid #333; border-radius: 4px; background: #fff; color: #333; font: inherit; cursor: pointer; }
+.button--primary { background: #333; color: #fff; }
+
+/* product-form block */
+.product-form { display: flex; gap: .75rem; align-items: end; margin: 1rem 0; }
+.product-form__field { display: flex; flex-direction: column; font-size: .85rem; color: #555; }
+.product-form__input { padding: .35rem .5rem; border: 1px solid #bbb; border-radius: 4px; font: inherit; }
+
+/* stock-table block */
+.stock-table { border-collapse: collapse; width: 100%; }
+.stock-table__heading { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid #ddd; color: #555; font-size: .8rem; font-weight: 600; }
+.stock-table__cell { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid #ddd; }
+.stock-table__cell--number { font-variant-numeric: tabular-nums; }
+
+/* amount-form block */
+.amount-form { display: inline-flex; gap: .3rem; }
+.amount-form__input { width: 3.5rem; padding: .35rem .5rem; border: 1px solid #bbb; border-radius: 4px; font: inherit; }
+
+/* shelf-label block: its own name, so it is never confused with a count */
+.shelf-label { font-size: .75rem; padding: .1rem .55rem; border-radius: 1rem; background: #eee; color: #444; }
+.shelf-label--fresh { background: #d6f2dc; color: #14532d; }
+.shelf-label--due-soon { background: #fde9c8; color: #7c4a03; }
+.shelf-label--expired { background: #fbd5d5; color: #7f1d1d; }
+
+/* shopping-list block: the count is ITS element, with its own modifier */
+.shopping-list { margin-top: 2rem; padding: 1rem; background: #f7f7f7; border-radius: 6px; }
+.shopping-list__title { margin: 0 0 .5rem; font-size: 1rem; }
+.shopping-list__items { margin: 0; padding-left: 1.2rem; }
+.shopping-list__count { font-size: .75rem; padding: .1rem .55rem; border-radius: 1rem; background: #e5e5e5; color: #333; }
+.shopping-list__count--urgent { background: #fbd5d5; color: #7f1d1d; }

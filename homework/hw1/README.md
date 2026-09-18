@@ -29,6 +29,8 @@ Copying the files across in Finder or Explorer works just as well. Your write-up
 |---|---|
 | **Given, complete** | `src/` — `index.html`, `styles.css`, `app.js`, `submit.php`, `db/config.php`, `db/connect.php`. The application. Read `submit.php` and `db/config.php`; do not edit them. |
 | **You write** | `docker/mysql/Dockerfile` · `docker/mysql/init.sql` · `docker/php-apache/Dockerfile` · `docker-compose.yml` |
+| **You copy** | `.env.example` → `.env`, then change the password. `.env` is gitignored; the four `MYSQL_*` values in it are what both `db` and `web` read. |
+| **You fill in** | `WRITEUP.md` (Task 6) |
 
 Each stub tells you exactly what it needs and which in-class example shows the pattern.
 
@@ -40,26 +42,28 @@ Each stub tells you exactly what it needs and which in-class example shows the p
 way Example 2 did, and **seeds it** with at least three obviously-fake rows so the site
 has data before any real person submits.
 
-Verify by getting inside and looking, as in Example 1:
-
-```bash
-docker compose exec db mysql -uappuser -p<your password> app -e "DESCRIBE survey; SELECT COUNT(*) FROM survey;"
-```
-
-**Done when** `DESCRIBE survey` shows every column with the right type and the count is
-your seed count.
+Build this image and run it **on its own** — `docker build`, then `docker run` with the
+MySQL variables from your `.env` passed in, exactly as Examples 1 and 2 did. No Compose
+yet; that is Task 3. Then check it the way you did in Example 1: get into the running
+container and look at the table. **Done when** the `survey` table has every column with
+the right type and holds your seed rows.
 
 ## Task 2 — The web image
 
 `docker/php-apache/Dockerfile`. PHP, Apache, the PDO MySQL driver the base image lacks,
 and a `COPY` of `src/`.
 
-**Done when** `docker compose build web` succeeds and `docker compose exec web php -m`
-lists `pdo_mysql`.
+Same approach: build it and run it on its own, as Examples 3 and 4 did, and open it in the
+browser. The survey form should appear; submitting it will fail, because there is no
+database this container can see yet — that is what Task 3 fixes. **Done when** the image
+builds, the form is served, and PHP inside the container has the MySQL driver. Example 5
+showed you one way to check.
 
 ## Task 3 — Wire them together
 
-`docker-compose.yml`. Requirements are in the stub. Three are worth stating twice:
+`docker-compose.yml`. You have two images that each work alone; now declare them once, on
+one network, the way Example 6 did. Requirements are in the stub. Three are worth stating
+twice:
 
 - **The database publishes no ports.** Only `web` may reach it. If you can connect from
   your laptop, you are not done.
@@ -70,9 +74,9 @@ lists `pdo_mysql`.
 Run it with `docker compose watch`, then edit `src/index.html` — change the heading — and
 confirm the change appears without a rebuild.
 
-**Done when** `docker compose watch` brings up both services, `docker compose ps` shows
-`db` as `(healthy)`, and <http://localhost:8080> serves the survey, whose confirmation page
-already reports your seed rows.
+**Done when** both services are up, the database reports healthy, and
+<http://localhost:8080> serves the survey with the confirmation page already reporting
+your seed rows.
 
 ## Task 4 — Reproducible from a clean clone
 
@@ -87,8 +91,11 @@ seed rows in `survey`. No manual SQL, no hand edits, no "oh, you also have to…
 ## Task 5 — Add a third service
 
 Add [Adminer](https://hub.docker.com/_/adminer) to `docker-compose.yml`: image `adminer:5`,
-published on `${ADMINER_PORT:-8081}`, waiting on `db` the same way `web` does. Open it,
-log in as `appuser`, and look at your table.
+published on `${ADMINER_PORT:-8081}`, waiting on `db` the same way `web` does. Open it and
+log in with the four things `web` also needs: server `db` (the service name — Adminer is on
+the same Compose network), username `appuser`, the password you set as `MYSQL_PASSWORD` in
+your `.env`, and database `app`. There is no other password; if you never changed it, it is
+still `change_me`, and that is worth fixing before you push. Then look at your table.
 
 This is four or five lines. The point is that a third service costs almost nothing once
 the first two are declared properly.

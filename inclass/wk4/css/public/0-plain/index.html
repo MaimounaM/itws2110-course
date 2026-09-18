@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pantry — plain CSS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Pantry</h1>
+    <nav>
+      <a href="#" class="active">Stock</a>
+      <a href="#">Shopping list</a>
+      <a href="#">Products</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="meta">Tuesday, September 15. Seven products; two have gone off.</p>
+
+    <p class="err" role="alert">Not enough in stock.</p>
+
+    <form id="new-product">
+      <label>Name <input name="name" placeholder="e.g. Milk"></label>
+      <label>Best before <input name="best_before" type="date"></label>
+      <button type="submit">Add product</button>
+    </form>
+
+    <table id="products">
+      <thead>
+        <tr><th>Product</th><th>In stock</th><th>Best before</th><th></th><th>Buy</th><th>Use</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Bread</td><td class="num">1</td><td>2026-09-13</td><td><span class="badge expired">expired</span></td><td><form class="inline"><input type="number" value="1"><button>Buy</button></form></td><td><form class="inline"><input type="number" value="1"><button>Use</button></form></td></tr>
+        <tr><td>Butter</td><td class="num">1</td><td>2026-09-17</td><td><span class="badge due soon">due soon</span></td><td><form class="inline"><input type="number" value="1"><button>Buy</button></form></td><td><form class="inline"><input type="number" value="1"><button>Use</button></form></td></tr>
+        <tr><td>Cheese</td><td class="num">0.5</td><td>2026-09-30</td><td><span class="badge fresh">fresh</span></td><td><form class="inline"><input type="number" value="1"><button>Buy</button></form></td><td><form class="inline"><input type="number" value="1"><button>Use</button></form></td></tr>
+        <tr><td>Eggs</td><td class="num">12</td><td>2026-09-19</td><td><span class="badge due soon">due soon</span></td><td><form class="inline"><input type="number" value="1"><button>Buy</button></form></td><td><form class="inline"><input type="number" value="1"><button>Use</button></form></td></tr>
+        <tr><td>Milk</td><td class="num">2.5</td><td>2026-09-25</td><td><span class="badge fresh">fresh</span></td><td><form class="inline"><input type="number" value="1"><button>Buy</button></form></td><td><form class="inline"><input type="number" value="1"><button>Use</button></form></td></tr>
+        <tr><td>Rice</td><td class="num">0</td><td>—</td><td><span class="badge">no date</span></td><td><form class="inline"><input type="number" value="1"><button>Buy</button></form></td><td><form class="inline"><input type="number" value="1"><button>Use</button></form></td></tr>
+        <tr><td>Yogurt</td><td class="num">4</td><td>2026-09-08</td><td><span class="badge expired">expired</span></td><td><form class="inline"><input type="number" value="1"><button>Buy</button></form></td><td><form class="inline"><input type="number" value="1"><button>Use</button></form></td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <aside class="shopping-list">
+    <h2>Shopping list</h2>
+    <ul>
+      <li>Rice <span class="badge">2</span></li>
+      <li>Bread <span class="badge expired">1</span></li>
+      <li>Coffee <span class="badge">1</span></li>
+    </ul>
+  </aside>
+
+</body>
+</html>

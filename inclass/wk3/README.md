@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Tue 9/8** | One small PHP app, tested three ways: PHPUnit on its classes, Playwright on its API, Playwright on its page. In between, you write a prompt that gets an AI to write a test — and check that the test is real. |
-| **Fri 9/11** | Continuous integration. **Homework 1 due. Homework 2 assigned — you will test Grocy, a real PHP app that shipped with no tests.** Project descriptions. |
+| **Fri 9/11** | Lab. **Homework 1 due. Homework 2 assigned — you will test Grocy, a real PHP app that shipped with no tests.** Project descriptions. |
 
 **One hand-in for the week: `ANSWERS.md`, two short questions, filled in and pushed
 before you leave class on Tuesday.** It counts toward participation.
