@@ -15,6 +15,10 @@ well you can explain it, is the rest of the grade.
 Every project has at least these parts, and they are the things the homeworks teach, in the
 order they teach them:
 
+The project must include user login and user management appropriate to the application,
+including account registration, login and logout, profile management, and role-based
+permissions as applicable to its users and workflows.
+
 | Part | What it means | You learn it in |
 |---|---|---|
 | **User management** | Register, log in, log out. Two roles: an ordinary user and an admin. A user can edit their own profile; an admin can see all users. | HW 7–8 (Laravel auth) |
@@ -46,8 +50,10 @@ Still **not** on the list, at any level: real-time anything, payments, email, fi
 third-party logins, mobile apps, AI features. If your idea needs one of those to make
 sense, pick a different idea.
 
-The stack is the course stack: Laravel API, React front end, MySQL, Docker Compose, PHPUnit
-and Playwright, deployed to the cloud provider we use in week 13. You may not substitute.
+Students must use the technologies covered in detail in the labs and homework,
+including **Tailwind CSS for styling, React for the front end, and Laravel for the API**.
+The course stack also includes MySQL, Docker Compose, PHPUnit, and Playwright, deployed
+to the cloud provider we use in week 13. You may not substitute.
 
 ## Docker and tests are not optional parts
 
