@@ -46,9 +46,6 @@ written up in the report. Pick one or two, not five:
 | **Test depth** | Coverage of the rules, contract tests for every error case, a browser test for every page. |
 | **A real user** | Three people from your audience used it. What they did, what confused them, what you changed. |
 
-Still **not** on the list, at any level: real-time anything, payments, email, file upload,
-third-party logins, mobile apps, AI features. If your idea needs one of those to make
-sense, pick a different idea.
 
 Students must use the technologies covered in detail in the labs and homework,
 including **Tailwind CSS for styling, React for the front end, and Laravel for the API**.
