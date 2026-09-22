@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React micro-installation</title>
+  <!-- Same learning-only Tailwind browser setup as Homework 3. Internet required. -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script type="importmap">
+    {"imports": {
+      "react": "https://esm.sh/react@19.2.0",
+      "react-dom/client": "https://esm.sh/react-dom@19.2.0/client?external=react"
+    }}
+  </script>
+</head>
+<body class="bg-slate-100 p-6 text-slate-900">
+  <main class="mx-auto max-w-xl space-y-4">
+    <h1 class="text-2xl font-bold">0. One file. One React element.</h1>
+    <p>Edit the text inside createElement. Save and reload.</p>
+    <div id="root" class="rounded-xl bg-white p-6 shadow-sm">Loading React… Internet access is required.</div>
+    <p id="status" role="status">Goal: make the heading say Hello, React!</p>
+  </main>
+  <script type="module">
+    import { createElement } from 'react';
+    import { createRoot } from 'react-dom/client';
+
+    // YOUR TURN: change only the third argument (the text).
+    const heading = createElement('h2', { className: 'text-xl font-bold' }, 'Hello, HTML!');
+    createRoot(document.getElementById('root')).render(heading);
+
+    // Checker supplied for you. React's render may commit after this script finishes.
+    const root = document.getElementById('root');
+    const check = () => {
+      const passed = root.querySelector('h2')?.textContent === 'Hello, React!';
+      const status = document.getElementById('status');
+      status.textContent = passed ? 'PASS — React rendered your heading.' : 'TRY AGAIN — change the heading to Hello, React!';
+      status.className = passed ? 'font-bold text-emerald-800' : 'font-bold text-red-800';
+    };
+    new MutationObserver(check).observe(root, { childList: true, subtree: true });
+    check();
+  </script>
+</body>
+</html>
