@@ -9,23 +9,27 @@ async function check(page, passed) {
   await expect(page.getByRole('status')).toContainText(passed ? 'PASS' : 'TRY AGAIN');
 }
 
+async function driveDrill(exercise, number) {
+  const buttons = exercise.getByRole('button');
+  if (number === 7 || number === 11) await buttons.first().click({ clickCount: 2 });
+  if (number === 8) {
+    await buttons.nth(0).click({ clickCount: 2 });
+    await buttons.nth(1).click();
+  }
+  if (number === 9) {
+    await buttons.nth(0).click();
+    await buttons.nth(1).click();
+  }
+  if (number === 10 || number === 11) await exercise.getByLabel('Product name').fill('Rice');
+}
+
 for (let number = 1; number <= 11; number++) {
   test(`worked solution ${number} reaches its visible goal`, async ({ page }) => {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
     const exercise = await openDrill(page, number);
-    const buttons = exercise.getByRole('button');
-    if (number === 7 || number === 11) await buttons.first().click({ clickCount: 2 });
-    if (number === 8) {
-      await buttons.nth(0).click({ clickCount: 2 });
-      await buttons.nth(1).click();
-    }
-    if (number === 9) {
-      await buttons.nth(0).click();
-      await buttons.nth(1).click();
-    }
-    if (number === 10 || number === 11) await exercise.getByLabel('Product name').fill('Rice');
+    await driveDrill(exercise, number);
     await check(page, true);
     expect(errors).toEqual([]);
   });
@@ -36,10 +40,7 @@ for (let number = 1; number <= 11; number++) {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     const exercise = await openDrill(page, number, false);
-    if (number === 7 || number === 9 || number === 11) {
-      await exercise.getByRole('button').first().click({ clickCount: 2 });
-    }
-    if (number === 10 || number === 11) await exercise.getByLabel('Product name').fill('Rice');
+    await driveDrill(exercise, number);
     await check(page, false);
     expect(errors).toEqual([]);
   });

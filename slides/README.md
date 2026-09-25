@@ -12,3 +12,5 @@ PDF exports of the lecture decks, posted after each session.
 | 6 | Tue 9/15 | Business relevance of CSS; DevTools; CSS frameworks; AI and design work | [PDF](6_css_frameworks_v3.pdf) |
 | 7 | Fri 9/18 | Flexbox, grid and breakpoints in Tailwind; Homework 3 | [PDF](7_css2.pdf) |
 | 8–9 | Tue 9/22 · Fri 9/25 | React: the render model, JSX, props, lists; then state, events and forms | [PDF](8_react.pdf) |
+| 9 | Fri 9/25 | Homework 4 and drill 11: shadcn/ui components, from one card to a pantry | [PDF](8b_hw4_pantry.pdf) |
+| 10–11 | Tue 9/29 · Fri 10/2 | React: state structure, keys, lifting state, composition; then component testing with Vitest | [PDF](9_react_state_and_tests.pdf) |

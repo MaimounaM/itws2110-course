@@ -35,13 +35,9 @@ the page, same as it would running locally. `Ctrl+C` stops watching;
 | | |
 |---|---|
 | Drills 1–11, the numbered nav, **Check result** | ✅ works, identically |
-| Drill 12–15 (`npm run test:unit`, `npm run test:unit:watch`) | ❌ not included here — those still need Node installed locally |
-| The instructor's `npm test` (Playwright) suite | ❌ not included here — same reason |
+| The instructor's `npm test` (Playwright) suite | ❌ not included here — it needs Node installed locally |
 
-This container runs the dev server only. If your local Node is broken in a way
-that *also* blocks the terminal commands for drills 12–15, say so in class
-rather than trying to work around it — that's worth fixing properly, not routing
-around a second time.
+Week 6's workshop has its own Docker set-up in `inclass/wk6/react/DOCKER.md`.
 
 ## If something goes wrong
 

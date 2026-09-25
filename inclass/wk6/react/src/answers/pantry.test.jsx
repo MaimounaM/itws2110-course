@@ -1,4 +1,4 @@
-// Worked answers for drills 12–15. Compare after you have your own version failing
+// Worked answers for drills 5–8. Compare after you have your own version failing
 // or passing — reading this first skips the part that teaches you something.
 //
 //     npm run test:unit:answers
@@ -8,18 +8,18 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ProductHeading, Product, AddButton, ProductNameField } from '../pantry.jsx';
 
-test('12. the heading says Pantry', () => {
+test('5. the heading says Pantry', () => {
   render(<ProductHeading />);
   expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('Pantry');
 });
 
-test('13. a product shows its name and its freshness', () => {
+test('6. a product shows its name and its freshness', () => {
   render(<Product name="Rice" expired={true} />);
   expect(screen.getByRole('heading', { level: 3 })).toHaveTextContent('Rice');
   expect(screen.getByText('Expired')).toBeInTheDocument();
 });
 
-test('14. clicking twice shows Added 2', async () => {
+test('7. clicking twice shows Added 2', async () => {
   const user = userEvent.setup();
   render(<AddButton />);
   await user.click(screen.getByRole('button'));
@@ -27,7 +27,7 @@ test('14. clicking twice shows Added 2', async () => {
   expect(screen.getByRole('button')).toHaveTextContent('Added 2');
 });
 
-test('15. typing a new name updates the paragraph', async () => {
+test('8. typing a new name updates the paragraph', async () => {
   const user = userEvent.setup();
   render(<ProductNameField />);
   const field = screen.getByLabelText('Product name');
