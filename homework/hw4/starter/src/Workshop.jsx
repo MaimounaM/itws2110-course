@@ -1,9 +1,8 @@
-// Workshop navigation and checks are supplied; students edit drills.jsx / capstone.jsx.
+// The drills page for Part 1. Supplied -- leave this file alone. You edit drills.jsx
+// (drills 1-10) and capstone.jsx (drill 11).
 import { useState } from 'react';
-import * as starters from './drills.jsx';
-import * as answers from './solutions.jsx';
-import { Drill11 as Capstone } from './capstone.jsx';
-import { Drill11 as CapstoneAnswer } from './capstone-solution.jsx';
+import * as drills from './drills.jsx';
+import { Drill11 } from './capstone.jsx';
 
 const lessons = [
   ['JSX: one heading', 'Change the h2 text to Hello, React!', 'A component is a function returning UI. JSX looks like HTML inside JavaScript.'],
@@ -46,29 +45,23 @@ function checkDrill(number, root) {
 }
 
 export default function Workshop() {
-  const params = new URLSearchParams(location.search);
-  const requested = Number(params.get('drill') || 1);
+  const requested = Number(new URLSearchParams(location.search).get('drill') || 1);
   const number = Number.isInteger(requested) && requested >= 1 && requested <= 11 ? requested : 1;
-  const solution = params.get('mode') === 'solution';
   const [attempt, setAttempt] = useState(0);
   const [status, setStatus] = useState('Not checked yet.');
   const [title, goal, hint] = lessons[number - 1];
   const file = number === 11 ? 'src/capstone.jsx' : 'src/drills.jsx';
-  const Component = number === 11 ? (solution ? CapstoneAnswer : Capstone)
-    : (solution ? answers : starters)[`Drill${number}`];
+  const Component = number === 11 ? Drill11 : drills[`Drill${number}`];
   return <main className="mx-auto max-w-4xl space-y-6 p-4 text-slate-900 sm:p-8">
     <header className="space-y-2">
-      <p className="text-sm font-semibold uppercase tracking-widest text-teal-800">ITWS 2110 · React lab</p>
-      <h1 className="text-3xl font-bold">One small change at a time</h1>
-      <p>Predict → edit → save → try → check → explain.</p>
-      <p className="text-sm">Start with <a className="underline" href="/00-micro.html">0. Micro-installation</a>. Then edit <code>{file}</code> in VS Code.</p>
+      <h1 className="text-3xl font-bold">Drills 1–11</h1>
+      <p>Each one needs to say <strong>PASS</strong>. Edit <code>{file}</code> in VS Code, save, then check.</p>
     </header>
     <nav aria-label="Drills" className="flex flex-wrap gap-2">
       {lessons.map(([label], index) => <a key={label} aria-current={number === index + 1 ? 'page' : undefined}
         className={`rounded border px-3 py-2 text-sm ${number === index + 1 ? 'bg-teal-800 text-white' : 'bg-white'}`}
-        href={`?drill=${index + 1}${solution ? '&mode=solution' : ''}`}>{index + 1}</a>)}
+        href={`?drill=${index + 1}`}>{index + 1}</a>)}
     </nav>
-    {solution && <p className="rounded border border-amber-600 bg-amber-50 p-3 font-semibold">Worked solution — your starter file is not being shown.</p>}
     <section className="space-y-4" aria-labelledby="lesson-title">
       <h2 id="lesson-title" className="text-xl font-bold">{number}. {title}</h2>
       <p><strong>Goal:</strong> {goal}</p>
@@ -78,12 +71,8 @@ export default function Workshop() {
         <button className="rounded border px-4 py-2" onClick={() => { setAttempt(n => n + 1); setStatus('Not checked yet.'); }}>Reset preview</button>
       </div>
       <p role="status" className="font-semibold">{status}</p>
-      <p className="text-sm text-slate-600">Check after every edit or resize. For click drills, reset first and repeat the stated actions. Checks inspect the visible result; explain your code to a partner too.</p>
+      <p className="text-sm text-slate-600">For click drills, reset first and repeat the stated actions. For drill 5, check at your normal window width.</p>
       <details className="rounded border p-3"><summary className="cursor-pointer font-semibold">Small hint</summary><p className="mt-2">{hint}</p></details>
     </section>
-    <footer className="border-t pt-4 text-sm">
-      <a className="underline" href={`?drill=${number}${solution ? '' : '&mode=solution'}`}>{solution ? 'Return to your starter' : 'Compare the worked solution'}</a>
-      <span> · </span><a className="underline" href="https://react.dev/learn">React reference</a>
-    </footer>
   </main>;
 }

@@ -1,4 +1,4 @@
-// Drills 12–15 run here. Reuses vite.config.js so the @ alias and the React plugin
+// Drills 5–8 run here. Reuses vite.config.js so the @ alias and the React plugin
 // behave exactly as they do in the browser; only the test settings are added.
 import { defineConfig, mergeConfig } from 'vitest/config';
 import viteConfig from './vite.config.js';

@@ -92,9 +92,6 @@ workshop avoids making everyone finish that configuration before they can learn 
 | `src/solutions.jsx`, `src/capstone-solution.jsx` | Worked answers for comparison |
 | `src/main.jsx` | Connect React to the root div; read once |
 | `src/components/ui/` | shadcn/ui component source; inspect during drill 11 |
-| `src/pantry.jsx` | Working components that drills 12–15 test; leave alone |
-| `src/pantry.test.jsx` | Your work for drills 12–15; run it in a terminal |
-| `src/answers/pantry.test.jsx` | Worked answers for drills 12–15 |
 | `src/Workshop.jsx` | Supplied navigation and visible-result checks; leave alone |
 
 
@@ -258,70 +255,10 @@ behavior; inspect the source to confirm you actually composed the supplied compo
 component you own. Point to where state lives and follow one click all the way back
 to the updated number. This is the endpoint of the workshop.
 
-## Third session — describe it from the outside
+## Next week
 
-Drills 1–11 asked *does the page look right?* and you answered by looking. Drills 12–15
-ask the same questions in a form that answers itself, every time, without you. That is
-the whole idea of a component test, and it is what Homework 5 asks you to write.
-
-These four do not run in this page. **The terminal is the check.** In VS Code open a
-second terminal — leave `npm run dev` in the first — and start the watcher:
-
-```bash
-npm run test:unit:watch
-```
-
-Open [`src/pantry.test.jsx`](src/pantry.test.jsx). All four drills start **red on
-purpose**: a failing test names something that is not built yet, the same argument from
-session 4. Read what Vitest prints — it shows what it got and what it wanted — before
-you change a line. Save, and the watcher re-runs in under a second.
-
-The components being tested are in [`src/pantry.jsx`](src/pantry.jsx) and already work.
-**Do not edit them.** In drills 1–11 you changed the component until the page was right;
-here the component is right and you write the description. Pick drills 12–15 in the
-numbered nav above to see each one rendered while you test it.
-
-### 12. Find it the way a person would · 5 minutes
-
-`render()` puts the component in a DOM. `screen` queries that DOM the way someone
-reading the page would: by role, by label, by visible text — never by class name and
-never by looking at state. Replace `CHANGE ME` with what the heading actually says.
-
-**Done when:** drill 12 is green.
-**Explain:** the test never mentions `h2` or `text-xl`. Why is querying by role better
-than querying by tag or by class? What could you change in `pantry.jsx` without
-breaking this test?
-
-### 13. Props in, assertions out · 6 minutes
-
-The `render` call is written. Write both assertions: what do `name="Rice"` and
-`expired={true}` produce? This is drill 4 and drill 6 read backwards.
-
-**Done when:** drill 13 is green.
-**Explain:** change the test to `expired={false}` and predict the failure before saving.
-A test is a claim about a contract — which contract is this one describing?
-
-### 14. Arrange, act, assert · 6 minutes
-
-Now the other half. The assertion is already correct; nothing has happened yet. Add the
-two clicks. `user.click()` is asynchronous, so every call needs `await` — without it the
-assertion runs before React has re-rendered, and you get `Added 0`.
-
-**Done when:** drill 14 is green.
-**Explain:** delete one `await` and watch it fail. Why does the test see a stale number?
-
-### 15. Typing is an action too · 6 minutes
-
-`getByLabelText('Product name')` finds the input through its `<label>` — the
-`htmlFor`/`id` pair from drill 10, which is also how a screen reader announces it.
-Clear the field before typing; `user.type()` appends to what is there.
-
-**Done when:** drill 15 is green, and so are all four.
-**Explain:** remove the `clear` and read the value in the failure. Then change the label
-text in `pantry.jsx` and watch the test fail — that coupling is the point, not a bug.
-
-Compare with [`src/answers/pantry.test.jsx`](src/answers/pantry.test.jsx), or run
-`npm run test:unit:answers`, once you have your own four green.
+Week 6 continues in its own folder, [`inclass/wk6/react/`](../../wk6/react/): where state
+should live, then writing component tests. It needs its own `npm ci`.
 
 ## When something breaks
 
@@ -337,10 +274,6 @@ Compare with [`src/answers/pantry.test.jsx`](src/answers/pantry.test.jsx), or ru
 | Input will not change | Connect `onChange` to the state setter |
 | An answer works but your work does not | Return from solution mode; edit your starter file |
 | Can't resolve `@/…` | Keep the supplied Vite alias and generated component files |
-| `toHaveTextContent is not a function` | `src/setup-tests.js` must be present; it is what adds the DOM matchers |
-| Drill 14 or 15 says `Added 0` / `Apples` | A missing `await`. Every `user.click` and `user.type` needs one |
-| `document is not defined` in a unit test | Run it with `npm run test:unit`, not `node` |
-| Unit tests pass but you changed nothing | You are looking at `src/answers/`, not `src/pantry.test.jsx` |
 
 Do not edit the checker to get a PASS. Checks look at output, not whether your
 implementation uses props, keys, or state correctly. The explanation and small
@@ -357,10 +290,7 @@ npm test
 ```
 
 The automated suite checks the supplied worked solutions, the deliberately incomplete
-starters, interactions, responsive layouts, and keyboard behavior. It also runs Vitest
-twice — once on `src/answers/` (must pass) and once on the drill 12–15 starters (must
-fail, and fail on an assertion rather than a crash), so a starter that is accidentally
-already green does not reach a classroom. It does **not**
+starters, interactions, responsive layouts, and keyboard behavior. It does **not**
 mark your edited starter answers; use the browser checks for those. Starter-baseline
 tests are expected to fail after you solve those starters. The CDN micro-example is
 separate and needs its own online browser check.
@@ -370,8 +300,6 @@ separate and needs its own online browser check.
 - [React Quick Start](https://react.dev/learn) — JSX, props, events, state.
 - [Vite setup](https://vite.dev/guide/) — development server and prerequisites.
 - [Tailwind with Vite](https://tailwindcss.com/docs/installation/using-vite) — Tailwind 4 plugin.
-- [Testing Library queries](https://testing-library.com/docs/queries/about/) — which query to reach for, and the priority order that puts roles first.
-- [Vitest](https://vitest.dev/guide/) — the runner for drills 12–15; it reuses this project's Vite configuration.
 - [shadcn/ui with Vite](https://ui.shadcn.com/docs/installation/vite) and
   [JavaScript configuration](https://ui.shadcn.com/docs/javascript) — the integration used here.
 

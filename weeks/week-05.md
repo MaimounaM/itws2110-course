@@ -5,11 +5,10 @@
 | | |
 |---|---|
 | **Tue 9/22** | React. Why a library would redraw the whole page on every change, and why that turns out to be fast. In class, the first six drills — [React workshop](../inclass/wk5/react/). [Slides](../slides/8_react.pdf) |
-| **Fri 9/25** | Lab; drills 7–11. **Homework 3 due; [Homework 4](../homework/hw4/) assigned — React components. Project proposal due.** |
+| **Fri 9/25** | Lab; drills 7–11. **Homework 3 due; [Homework 4](../homework/hw4/) assigned — React components ([slides](../slides/8b_hw4_pantry.pdf)). Project proposal due.** |
 
-The workshop runs past this week: drills 12–15 write component tests with Vitest and
-Testing Library, and belong to session 11 on Fri 10/2. Same folder, same `npm run dev` —
-nothing extra to install.
+Next week's drills are in their own folder, [`inclass/wk6/react/`](../inclass/wk6/react/)
+— see [week 6](week-06.md).
 
 ---
 
