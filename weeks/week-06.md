@@ -30,6 +30,17 @@ Same numbered nav and Check result button as last week, in
 - **4. Composition over configuration** — a `Card` that only knows how to take one
   footer button, refactored to accept `children` instead.
 
+## Drills 9–13 — the reading, one bug at a time
+
+Five more in the same folder, in [`src/readings.jsx`](../inclass/wk6/react/src/readings.jsx), any time this week.
+Each one is the bug a section of the reading warns about, and the README links that section:
+
+- **9. One status, not two booleans** — an order that says "Sending…" and "Sent!" at once.
+- **10. Store the id, not a copy** — rename the product you picked, and "You picked" goes stale.
+- **11. Only one panel open** — the reading's accordion: two panels that should take turns.
+- **12. Reset with a key** — switch products and the note box keeps the old product's note.
+- **13. Read the prop, don't copy it** — the price changes but the tag doesn't.
+
 ---
 
 ## Reading — due Tuesday
@@ -42,9 +53,9 @@ update" bug you're about to have.
 
 [react.dev/learn](https://react.dev/learn) — free, no login, same textbook as last week.
 
-- **[Sharing State Between Components](https://react.dev/learn/sharing-state-between-components)** — lifting state up. When two components need to agree, the state moves to their lowest common ancestor.
-- **[Choosing the State Structure](https://react.dev/learn/choosing-the-state-structure)** — derived vs. stored. If you can compute it from something you already have, don't give it its own `useState`. Most state bugs are two copies of one fact disagreeing.
-- **[Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)** — why the same component in the same position keeps its state across renders, and what actually resets it. This is the mechanism under Tuesday's live-debugging demo.
+- **[Sharing State Between Components](https://react.dev/learn/sharing-state-between-components)** — lifting state up. When two components need to agree, the state moves to their lowest common ancestor. *Practice: drills 2 and 11.*
+- **[Choosing the State Structure](https://react.dev/learn/choosing-the-state-structure)** — derived vs. stored. If you can compute it from something you already have, don't give it its own `useState`. Most state bugs are two copies of one fact disagreeing. *Practice: drills 3, 9, 10 and 13.*
+- **[Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)** — why the same component in the same position keeps its state across renders, and what actually resets it. This is the mechanism under Tuesday's live-debugging demo. *Practice: drills 1 and 12.*
 
 ### 2. Dan Abramov, *Writing Resilient Components* (Optional)
 
