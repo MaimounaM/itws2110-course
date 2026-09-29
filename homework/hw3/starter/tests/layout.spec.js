@@ -12,7 +12,22 @@ const path = require('path');
 const fs = require('fs');
 const { pathToFileURL } = require('url');
 
-const PAGE = pathToFileURL(path.join(__dirname, '..', 'index.html')).href;
+// Find the page without caring how it was capitalised or spelled: Index.html,
+// INDEX.HTML and home.html all count. Naming is not what this assignment marks.
+function findPage() {
+  const dir = path.join(__dirname, '..');
+  const files = fs.readdirSync(dir).filter((f) => /\.html?$/i.test(f));
+  const notDrills = files.filter((f) => !/^drills/i.test(f));
+  const exact = notDrills.find((f) => f.toLowerCase() === 'index.html');
+  const chosen = exact || notDrills[0];
+  if (!chosen) {
+    throw new Error(`No .html file found in ${dir} -- the assignment lives in index.html`);
+  }
+  return path.join(dir, chosen);
+}
+
+const PAGE_PATH = findPage();
+const PAGE = pathToFileURL(PAGE_PATH).href;
 
 const PHONE = { width: 375, height: 900 };
 const TABLET = { width: 800, height: 900 };
@@ -160,7 +175,7 @@ test('Task 4: a class you taught yourself is present, and it is doing something'
 test('the rules: no stylesheet, no inline styles, no arbitrary values', () => {
   // Read the file you wrote, not the rendered page: Tailwind's browser build
   // injects a <style> block of its own, and that one is not yours to answer for.
-  const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  const html = fs.readFileSync(PAGE_PATH, 'utf8');
 
   const yourStyleBlocks = [...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)]
     .map((m) => m[1])
