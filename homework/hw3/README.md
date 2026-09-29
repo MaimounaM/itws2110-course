@@ -1,6 +1,6 @@
 # Homework 3 — Flexbox, Grid, and Breakpoints
 
-**Assigned:** Fri 9/18 · **Due:** Fri 9/25, 11:59 PM · **Individual**
+**Assigned:** Fri 9/18 · **Due:** ~~Fri 9/25~~ **extended to Mon 9/28, 11:59 PM** · **Individual**
 
 Three things do most of the layout work on the modern web: **flexbox** puts things in a
 row, **grid** puts things in a grid, and **breakpoints** change your mind about both when
@@ -164,6 +164,36 @@ That line is for learning and prototyping, not for a production site. Leave it i
 
 ---
 
+## What it looks like when you're done
+
+At laptop width, the finished `index.html` looks like this:
+
+![The finished page at laptop width: a white header with "My Course Page" on the left and Home, Projects and About links on the right; a grid of six white cards, three across and two rows deep; then a wide "Main article" card beside a narrower "Sidebar" card.](finished-example.png)
+
+That's all three tasks at once. From top to bottom:
+
+- **Task 1:** the header — title on the left, links pushed to the right.
+- **Task 2:** the card grid — three across here.
+- **Task 3:** the article beside the sidebar, the article about two thirds of the width.
+
+Narrow the window and it changes. That's the point of the assignment:
+
+| Width | Cards | Article and sidebar |
+|---|---|---|
+| Phone (below 768px) | one column | stacked, article on top |
+| Tablet (768px and up) | two columns | side by side |
+| Laptop (1024px and up) | three columns, as above | side by side |
+
+On a phone the whole page is one column — header stacked, cards stacked, article above
+sidebar — and nothing runs off the right edge:
+
+<img src="finished-phone.png" width="280" alt="The finished page at phone width: 'My Course Page' centred with Home, Projects and About on a line below it; six cards stacked one per row; then the Main article card above the Sidebar card.">
+
+Colours, spacing and fonts are yours; they don't have to match the picture. The layout at
+each width does — that's what the tests check.
+
+---
+
 ## Task 1 — A header row, with flexbox
 
 The page title on the left, the three nav links grouped together on the right, everything
@@ -183,6 +213,12 @@ Add padding, a background colour, and enough font weight that it reads as a head
 
 **Done when** the title is hard left, the links are hard right, they are level with each
 other, and nothing is jammed against the window edge.
+
+**On a phone there isn't room for both on one line** — the title gets squeezed onto three
+lines, and on a narrow enough screen the links run off the right edge. Stack them on a
+phone and go back to a row once there's room: `flex-col sm:flex-row` on the header. That's
+the same breakpoint idea as Task 3, so it's worth doing here, even though the tests only
+check the header at laptop width.
 
 ---
 
@@ -319,6 +355,10 @@ Read the failures rather than guessing: each one says what it wanted and what it
 **What the tests cannot check** is whether write-up question 5 explains your Task 4 class
 properly, or whether your screenshots are really of your page. Ten green tests is most of
 the grade, not all of it.
+
+Capitalisation of your file name does not matter — `index.html`, `Index.html` and
+`INDEX.HTML` are all found. Nothing in this assignment is marked on how a file is
+spelled.
 
 Two things not to do: do not edit `tests/layout.spec.js` to make it pass, and keep the
 `<header>`, `<main>`, `<section id="cards">`, `<section id="layout">`, `<article>` and

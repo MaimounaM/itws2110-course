@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Tue 9/22** | React. Why a library would redraw the whole page on every change, and why that turns out to be fast. In class, the first six drills — [React workshop](../inclass/wk5/react/). [Slides](../slides/8_react.pdf) |
-| **Fri 9/25** | Lab; drills 7–11. **Homework 3 due; [Homework 4](../homework/hw4/) assigned — React components ([slides](../slides/8b_hw4_pantry.pdf)). Project proposal due.** |
+| **Fri 9/25** | Lab; drills 7–11. **Homework 3 extended to Mon 9/28; [Homework 4](../homework/hw4/) assigned — React components ([slides](../slides/8b_hw4_pantry.pdf)). Project proposal due.** |
 
 Next week's drills are in their own folder, [`inclass/wk6/react/`](../inclass/wk6/react/)
 — see [week 6](week-06.md).
@@ -27,9 +27,9 @@ written by the team that maintains React, updated with it, and runnable in the p
 book beats them for learning to write React; assigning one alongside would only tell you
 things that stopped being true. Do the examples in the browser rather than reading past them.
 
-- **Thinking in React** — how to get from a picture of a page to a tree of components.
-- **Describing the UI** — JSX, props, lists, conditions. Drills 1–6 on Tuesday are these pages.
-- **Render and Commit** — the two phases. Read this one twice; it is Tuesday's lecture.
+- **[Thinking in React](https://react.dev/learn/thinking-in-react)** — how to get from a picture of a page to a tree of components.
+- **[Describing the UI](https://react.dev/learn/describing-the-ui)** — JSX, props, lists, conditions. Drills 1–6 on Tuesday are these pages.
+- **[Render and Commit](https://react.dev/learn/render-and-commit)** — the two phases. Read this one twice; it is Tuesday's lecture.
 
 ### 2. Tejas Kumar, *Fluent React* — chapter 3 (Optional)
 
@@ -71,7 +71,7 @@ who worked on it. The advanced version of everything above. Long, and worth it.
 
 | | Due |
 |---|---|
-| **Homework 3** — flexbox, grid, and breakpoints in Tailwind | **Fri 9/25, 11:59 PM** |
+| **Homework 3** — flexbox, grid, and breakpoints in Tailwind | ~~Fri 9/25~~ **Mon 9/28, 11:59 PM** (extended) |
 | **Project proposal** | **Fri 9/25, 11:59 PM** |
 
 The workshop drills are practice, not a submission. Nothing in `inclass/wk5/` is graded.

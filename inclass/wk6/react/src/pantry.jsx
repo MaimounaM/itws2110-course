@@ -1,5 +1,5 @@
-// Supplied and already working. Drills 12–15 write tests *for* this file.
-// Do not edit it: in drills 1–11 you changed the component until the page was
+// Supplied and already working. Drills 5–8 write tests *for* this file.
+// Do not edit it: in last week's drills you changed the component until the page was
 // right; here the component is right and you describe it from the outside.
 import { useState } from 'react';
 
