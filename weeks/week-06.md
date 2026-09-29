@@ -41,6 +41,13 @@ Each one is the bug a section of the reading warns about, and the README links t
 - **12. Reset with a key** — switch products and the note box keeps the old product's note.
 - **13. Read the prop, don't copy it** — the price changes but the tag doesn't.
 
+## Drill 14 — `useState` is a hook; what's a hook?
+
+One more, in [`src/hooks.jsx`](../inclass/wk6/react/src/hooks.jsx). A custom hook, `useQuantity()`,
+is called in every component that needs the number — and the cart never hears about the
+shelf. A custom hook shares *logic*, not *state*. Optional reading:
+[Reusing Logic with Custom Hooks](https://react.dev/learn/reusing-logic-with-custom-hooks).
+
 ---
 
 ## Reading — due Tuesday

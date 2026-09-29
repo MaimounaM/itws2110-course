@@ -54,8 +54,8 @@ Weeks are linked as they are posted. Everything is due at **11:59 PM** on the da
 | **[2](weeks/week-02.md)** | Tue 9/1 · Fri 9/4 | Docker and infrastructure as code; LAMP on Docker | *Nothing due* |
 | **[3](weeks/week-03.md)** | Tue 9/8 · Fri 9/11 | Test-driven development; writing tests at three levels | In-class — Tue 9/8<br>HW 1 — Fri 9/11 |
 | **[4](weeks/week-04.md)** | Tue 9/15 · Fri 9/18 | CSS frameworks | In-class — Tue 9/15<br>HW 2 — Fri 9/18 |
-| 5 | Tue 9/22 · Fri 9/25 | React — components and the render model | In-class — Tue 9/22<br>HW 3 — Fri 9/25<br>**Project pitch — Fri 9/25** |
-| 6 | Tue 9/29 · Fri 10/2 | React — state, composition, component testing | In-class — Tue 9/29<br>HW 4 — Fri 10/2 |
+| **[5](weeks/week-05.md)** | Tue 9/22 · Fri 9/25 | React — components and the render model | In-class — Tue 9/22<br>HW 3 — Fri 9/25<br>**Project pitch — Fri 9/25** |
+| **[6](weeks/week-06.md)** | Tue 9/29 · Fri 10/2 | React — state, composition, component testing | In-class — Tue 9/29<br>HW 4 — Fri 10/2 |
 | 7 | Tue 10/6 · Fri 10/9 | Laravel — what a framework buys you | In-class — Tue 10/6<br>HW 5 — Fri 10/9 |
 | 8 | Tue 10/13 | **Quiz 1** — handwritten, closed-device | Quiz 1 — Tue 10/13 |
 | — | *Fri 10/16* | *No class — follows a Monday schedule* | — |
