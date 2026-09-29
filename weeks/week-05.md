@@ -27,9 +27,9 @@ written by the team that maintains React, updated with it, and runnable in the p
 book beats them for learning to write React; assigning one alongside would only tell you
 things that stopped being true. Do the examples in the browser rather than reading past them.
 
-- **Thinking in React** — how to get from a picture of a page to a tree of components.
-- **Describing the UI** — JSX, props, lists, conditions. Drills 1–6 on Tuesday are these pages.
-- **Render and Commit** — the two phases. Read this one twice; it is Tuesday's lecture.
+- **[Thinking in React](https://react.dev/learn/thinking-in-react)** — how to get from a picture of a page to a tree of components.
+- **[Describing the UI](https://react.dev/learn/describing-the-ui)** — JSX, props, lists, conditions. Drills 1–6 on Tuesday are these pages.
+- **[Render and Commit](https://react.dev/learn/render-and-commit)** — the two phases. Read this one twice; it is Tuesday's lecture.
 
 ### 2. Tejas Kumar, *Fluent React* — chapter 3 (Optional)
 

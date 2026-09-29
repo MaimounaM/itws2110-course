@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Tue 9/29** | React III: state structure and composition — lists and keys, lifting state up, derived vs. stored state, composition over configuration. Mostly lecture and live debugging; drills 1–4 of the [week 6 workshop](../inclass/wk6/react/) for the last part of class, or as practice before Friday. **PHP refresher assigned** — self-paced, due before Session 12. [Slides](../slides/9_react_state_and_tests.pdf) |
+| **Tue 9/29** | React III: state structure and composition — lists and keys, lifting state up, derived vs. stored state, composition over configuration. Mostly lecture and live debugging; drills 1–4 of the [week 6 workshop](../inclass/wk6/react/) for the last part of class, or as practice before Friday. **In-class: push your copy of the workshop to your repo at the end of class**, with whatever you finished ([how](../inclass/wk6/README.md)). [Slides](../slides/9_react_state_and_tests.pdf) |
 | **Fri 10/2** | Lab; drills 5–8 of the same [week 6 workshop](../inclass/wk6/react/) — writing component tests with Vitest and Testing Library. **Homework 4 due. Homework 5 assigned** — React with tests you write yourself. |
 
 Both days use one new folder, [`inclass/wk6/react/`](../inclass/wk6/react/). It needs its
@@ -75,37 +75,16 @@ actually do differently" version.
 
 ---
 
-## Also assigned this week — PHP refresher (self-paced)
-
-**Due before Session 12** (Tue 10/6), not this week — but assigned today because most of it
-is recognition, not new material, and you have more slack now than you will next week.
-
-The question: **you know JavaScript — what actually differs in PHP, and what has no
-JavaScript equivalent at all?**
-
-- **[PHP: The Right Way](https://phptherightway.com/)** — the standard orientation to *modern*
-  PHP. Skim the whole thing; read "Language Highlights" and "Dependency Management" properly.
-- **PHP Manual** — [Language Reference](https://www.php.net/manual/en/langref.php), especially
-  [types](https://www.php.net/manual/en/language.types.php) and arrays. A PHP array is an
-  ordered map, which is not what a JavaScript array is, and this trips everyone at least once.
-- **The PHP 8 features Laravel assumes:** typed properties, constructor promotion, `match`,
-  enums, named arguments, nullsafe `?->`. If your PHP is from ITWS 1100, it likely predates
-  most of these, and Laravel's own code is full of them.
-- **The one idea with no JavaScript equivalent, and the one to actually retain:** *the script
-  dies at the end of every request.* No module-level state survives a request, no long-lived
-  connections, nothing sitting in memory for the next person who hits the page. This is why
-  Laravel needs sessions (Session 17), and it's the reason the spring course reaches for Node
-  when that stops being good enough.
-
----
-
 ## Due this week
 
 | | Due |
 |---|---|
+| **In-class** — your copy of `inclass/wk6/react/`, pushed with whatever you finished | **Tue 9/29, end of class** |
 | **Homework 4** — React components | **Fri 10/2, 11:59 PM** |
 
-The workshop drills are practice, not a submission. Nothing in `inclass/` is graded.
+The in-class push counts toward participation, not correctness: finished or not, push what
+you have before you leave. The drills themselves are practice — nothing in `inclass/` is
+graded for right answers.
 
 Friday is hands-on again: same laptop, same Node 22.12+, same `inclass/wk6/react/` folder.
 Friday starts at drill 5, with a second terminal running `npm run test:unit:watch`.
