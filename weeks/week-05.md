@@ -4,8 +4,8 @@
 
 | | |
 |---|---|
-| **Tue 9/22** | React. Why a library would redraw the whole page on every change, and why that turns out to be fast. In class, the first six drills — [React workshop](../inclass/wk5/react/). [Slides](../slides/8_react.pdf) |
-| **Fri 9/25** | Lab; drills 7–11. **Homework 3 extended to Mon 9/28; [Homework 4](../homework/hw4/) assigned — React components ([slides](../slides/8b_hw4_pantry.pdf)). Project proposal due.** |
+| **Tue 9/22** | React. Why a library would redraw the whole page on every change, and why that turns out to be fast. In class, the first six drills — [React workshop](../inclass/wk5/react/). [Slides](../slides/8-9_react.pdf) |
+| **Fri 9/25** | Lab; drills 7–11. **Homework 3 extended to Mon 9/28; [Homework 4](../homework/hw4/) assigned — React components ([slides](../slides/8-9_react.pdf)). Project proposal due.** |
 
 Next week's drills are in their own folder, [`inclass/wk6/react/`](../inclass/wk6/react/)
 — see [week 6](week-06.md).

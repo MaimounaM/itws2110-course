@@ -4,8 +4,8 @@
 
 | | |
 |---|---|
-| **Tue 9/29** | React III: state structure and composition — lists and keys, lifting state up, derived vs. stored state, composition over configuration. Mostly lecture and live debugging; drills 1–4 of the [week 6 workshop](../inclass/wk6/react/) for the last part of class, or as practice before Friday. **In-class: push your copy of the workshop to your repo at the end of class**, with whatever you finished ([how](../inclass/wk6/README.md)). [Slides](../slides/9_react_state_and_tests.pdf) |
-| **Fri 10/2** | Lab; drills 5–8 of the same [week 6 workshop](../inclass/wk6/react/) — writing component tests with Vitest and Testing Library. **Homework 4 due. Homework 5 assigned** — React with tests you write yourself. |
+| **Tue 9/29** | React III: state structure and composition — lists and keys, lifting state up, derived vs. stored state, composition over configuration. Mostly lecture and live debugging; drills 1–4 of the [week 6 workshop](../inclass/wk6/react/) for the last part of class, or as practice before Friday. **In-class: push your copy of the workshop to your repo at the end of class**, with whatever you finished ([how](../inclass/wk6/README.md)). [Slides](../slides/10-11_react_state_and_tests_v4.pdf) |
+| **Fri 10/2** | Lab; drills 5–8 of the same [week 6 workshop](../inclass/wk6/react/) — writing component tests with Vitest and Testing Library. **Homework 4 due. [Homework 5](../homework/hw5/) assigned** — a to-do list: four small features from Tuesday's ideas, and two tests you write yourself. Due Fri 10/9. [Slides](../slides/10-11_react_state_and_tests_v4.pdf) |
 
 Both days use one new folder, [`inclass/wk6/react/`](../inclass/wk6/react/). It needs its
 own install — run `npm ci` there **before Tuesday**:

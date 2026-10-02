@@ -6,3 +6,4 @@ Assignments are released here as the semester goes.
 - [Homework 2](hw2/) — testing infrastructure
 - [Homework 3](hw3/) — flexbox, grid, and breakpoints in Tailwind
 - [Homework 4](hw4/) — React components
+- [Homework 5](hw5/) — a to-do list: where state lives, and two tests of your own
