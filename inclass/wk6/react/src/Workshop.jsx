@@ -20,6 +20,14 @@ const unitDrills = {
   8: () => <ProductNameField />,
 };
 
+// Step 3 of the on-page instructions for the terminal drills: what to change in the test.
+const unitSteps = {
+  5: 'Replace CHANGE ME with the text the heading above really shows.',
+  6: 'Replace both CHANGE ME strings: the name in the h3, and the word on the badge above.',
+  7: 'Under YOUR TURN, add two lines, one per click: await user.click(screen.getByRole("button"));',
+  8: 'Under YOUR TURN, add two lines: await user.clear(field); then await user.type(field, "Oats");',
+};
+
 const lessons = [
   ['Keys done properly', 'Move Rice to front, then check that its note field still says "buy the 5lb bag."', 'key={item.id} instead of key={index} -- the note follows the product, not the position.'],
   ['Lifting state up', 'Click the first stepper twice; both should read Qty: 2.', 'One quantity in Drill2, passed to both Steppers as quantity + onAdd. Delete Stepper’s own useState.'],
@@ -103,10 +111,18 @@ export default function Workshop() {
       <div id="exercise" key={attempt} className="rounded-xl border-2 border-dashed border-slate-400 bg-white p-6"><Component /></div>
       {unit ? <>
         <p>The component above already works. You are writing the test that says so.
-          There is no Check result button here — <strong>the terminal is the check.</strong> Leave this running:</p>
-        <pre className="overflow-x-auto rounded bg-slate-900 p-3 text-sm text-white"><code>npm run test:unit:watch</code></pre>
-        <p className="text-sm text-slate-600">All four start red. Read the diff Vitest prints — what it got versus what it
-          wanted — before changing anything. Answers: <code>npm run test:unit:answers</code>.</p>
+          There is no Check result button here — <strong>the terminal is the check.</strong></p>
+        <ol className="list-decimal space-y-2 pl-6">
+          <li>Leave <code>npm run dev</code> running. Open a <strong>second terminal</strong> in this folder and run:
+            <pre className="mt-1 overflow-x-auto rounded bg-slate-900 p-3 text-sm text-white"><code>npm run test:unit:watch</code></pre></li>
+          <li>It lists four red tests — that is the starting point, not a mistake. Find the one whose name starts
+            with <strong>{number}.</strong> and read its <em>Expected</em> and <em>Received</em> lines.</li>
+          <li>Open <code>src/pantry.test.jsx</code> and find the same test. {unitSteps[number]}</li>
+          <li>Save. The terminal re-runs by itself. You're done when test {number} is gone from the red list
+            and the summary counts one more <em>passed</em>. Then pick the next number above.</li>
+        </ol>
+        <p className="text-sm text-slate-600">Change only the test file — <code>src/pantry.jsx</code> is already right.
+          Compare with the answers when yours is green: <code>npm run test:unit:answers</code>.</p>
       </> : <>
         <div className="flex flex-wrap gap-3">
           <button className="rounded bg-teal-800 px-4 py-2 text-white" onClick={() => setStatus(checkDrill(number, document.getElementById('exercise')) ? 'PASS — goal reached.' : 'TRY AGAIN — compare the preview with the goal.')}>Check result</button>
