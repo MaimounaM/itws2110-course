@@ -70,6 +70,15 @@ class WorkshopController extends Controller
         ],
     ];
 
+    // Laravel's dev tools print test results as JSON when they think an AI coding agent is
+    // running them (they look for these variables). A person is reading this page, so the
+    // check always asks for the ordinary output. false removes a variable for that one run.
+    private const NO_AGENT = [
+        'AI_AGENT' => false, 'CLAUDECODE' => false, 'CLAUDE_CODE' => false, 'CLAUDE_CODE_IS_COWORK' => false,
+        'CURSOR_AGENT' => false, 'CODEX_CI' => false, 'CODEX_SANDBOX' => false, 'CODEX_THREAD_ID' => false,
+        'ANTIGRAVITY_AGENT' => false, 'AUGMENT_AGENT' => false, 'KIRO_AGENT_PATH' => false, 'PI_CODING_AGENT' => false,
+    ];
+
     public function index()
     {
         return view('workshop.index', ['drills' => self::DRILLS]);
@@ -82,7 +91,7 @@ class WorkshopController extends Controller
         abort_unless(isset(self::DRILLS[$number]), 404);
 
         $result = Process::path(base_path())
-            ->env(['APP_ENV' => 'testing', 'SESSION_DRIVER' => 'array', 'CACHE_STORE' => 'array'])
+            ->env(['APP_ENV' => 'testing', 'SESSION_DRIVER' => 'array', 'CACHE_STORE' => 'array'] + self::NO_AGENT)
             ->timeout(60)
             ->run(['php', 'vendor/bin/phpunit', '--colors=never', '--filter', "Drill{$number}Test"]);
 
@@ -95,11 +104,14 @@ class WorkshopController extends Controller
     // PHPUnit's output is long. Keep the part a person needs: the failed assertion.
     private function firstFailure(string $output): string
     {
-        // The first failure runs from "1) Test::name" to the first file path (the stack trace).
-        $text = preg_match('/^1\) .+?\R(.+?)\R\/app\//ms', $output, $m) ? $m[1] : substr($output, -800);
+        // The first failure runs from "1) Test::name" to the first line that is a path inside
+        // this project (the stack trace). base_path() is /app in Docker, and wherever the
+        // folder lives when PHP runs on the laptop itself (Herd, for example).
+        $root = preg_quote(base_path().DIRECTORY_SEPARATOR, '/');
+        $text = preg_match('/^1\) .+?\R(.+?)\R'.$root.'/ms', $output, $m) ? $m[1] : substr($output, -800);
         // "Failed asserting that '<!doctype html>...the whole page...' contains ..." -> "...that the page contains ..."
         $text = preg_replace("/that '.{20,}?'(?: \\[[^\\]]*\\]\\(length: \\d+\\))? ((?:does not )?contain)/s", 'that the page $1', $text);
-        $text = preg_replace('/ \[ASCII\]\(length: \d+\)/', '', $text);
+        $text = preg_replace('/ \[[A-Z0-9-]+\]\(length: \d+\)/', '', $text);
         return trim(mb_strimwidth(trim($text), 0, 600, '…'));
     }
 }
