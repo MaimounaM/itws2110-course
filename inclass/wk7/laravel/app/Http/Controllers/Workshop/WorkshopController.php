@@ -93,12 +93,26 @@ class WorkshopController extends Controller
         $result = Process::path(base_path())
             ->env(['APP_ENV' => 'testing', 'SESSION_DRIVER' => 'array', 'CACHE_STORE' => 'array'] + self::NO_AGENT)
             ->timeout(60)
-            ->run(['php', 'vendor/bin/phpunit', '--colors=never', '--filter', "Drill{$number}Test"]);
+            ->run([$this->php(), 'vendor/bin/phpunit', '--colors=never', '--filter', "Drill{$number}Test"]);
 
         return response()->json([
             'passed' => $result->successful(),
             'saw' => $result->successful() ? '' : $this->firstFailure($result->output().$result->errorOutput()),
         ]);
+    }
+
+    // Which php to run the test with. In Docker and under `php artisan serve` it is plain
+    // "php". A Herd .test site is served by PHP-FPM, which has no "php" on its PATH, so
+    // look beside the PHP that is answering this request.
+    private function php(): string
+    {
+        $found = \Illuminate\Support\php_binary();
+        if ($found !== 'php') {
+            return $found;
+        }
+        $beside = dirname(PHP_BINARY).DIRECTORY_SEPARATOR.'php';
+
+        return PHP_BINARY !== '' && is_executable($beside) ? $beside : 'php';
     }
 
     // PHPUnit's output is long. Keep the part a person needs: the failed assertion.

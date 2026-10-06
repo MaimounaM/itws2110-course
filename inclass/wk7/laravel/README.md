@@ -36,6 +36,48 @@ see it — PHP reads your files again on every request. `Ctrl+C` stops watching;
 
 Port 8000 taken? `APP_PORT=8001 docker compose watch`, then use http://localhost:8001.
 
+### Optional: Laravel Herd instead of Docker
+
+Skip this unless you already use [Laravel Herd](https://herd.laravel.com) or want to try it.
+Herd is a free Mac and Windows app that installs PHP and Composer on your laptop itself.
+Docker is what the course supports, and what the homework instructions assume.
+
+With Docker, Laravel's packages (`vendor/`) and the settings file (`.env`) are made inside the
+image. With Herd nothing makes them for you, so you create them once, in this folder:
+
+```bash
+cd inclass/wk7/laravel
+composer install
+cp .env.example .env
+php artisan key:generate
+```
+
+Then start the app and open **http://127.0.0.1:8000**:
+
+```bash
+php artisan serve
+```
+
+Skip a step and you'll see one of these:
+
+| What you see | The step you skipped |
+|---|---|
+| `Failed to open stream … vendor/autoload.php` | `composer install` |
+| A bare `500 Server Error` | `cp .env.example .env`, then `php artisan key:generate` |
+
+Two differences from the Docker instructions:
+
+- Commands run directly, with no `docker compose exec app` in front: `php artisan route:list`.
+- **Check result** works as it does in Docker. To run the checks from the terminal instead:
+  `php artisan test` for all nine, `php artisan test --filter Drill1Test` for one.
+
+Herd can also serve the folder as a site of its own, instead of `php artisan serve`: **Add
+Site** in the Herd app, or `herd link` in this folder, gives you http://laravel.test. The
+drills page and **Check result** work the same there.
+
+Both `vendor/` and `.env` are in `.gitignore`, so neither is committed. Don't run Docker and
+`php artisan serve` on port 8000 at the same time.
+
 ## A five-minute tour
 
 A Laravel app is a folder of conventions. You don't decide where things go; the framework
@@ -50,7 +92,7 @@ already did. That is half of what it buys you.
 | `resources/views/components/` | Reusable pieces. `layout.blade.php` is the shared page shell. |
 | `config/` and `.env` | Settings. `.env` holds the ones that change per machine, and is never committed. |
 | `tests/` | Tests. The drill checks live in `tests/Feature/Drills/`. |
-| `vendor/` | Laravel itself and its packages — inside the container only. |
+| `vendor/` | Laravel itself and its packages — inside the container only (in this folder if you use Herd). |
 | `artisan` | Laravel's command-line tool. |
 
 To see the routing table the framework built from `routes/web.php`, in a second terminal:
@@ -183,7 +225,8 @@ not correctness.
 
 Copy the `laravel` folder from `inclass/wk7/` in the course repo and paste it into
 `inclass/wk7/` in your own repository (Finder or Explorer is fine), then commit and push.
-There is no `vendor/` folder to leave behind — it only exists inside the container. Kept going
+There is no `vendor/` folder to leave behind — it only exists inside the container (with Herd,
+`.gitignore` keeps it and `.env` out of the commit). Kept going
 after class? Copy, paste and push again — the latest push counts.
 
 ## When something breaks
