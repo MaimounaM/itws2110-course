@@ -6,3 +6,5 @@ Tuesday in-class exercises are released here, one directory per session.
   drills, state and props, and composition with shadcn/ui.
 - [Week 6 — where state lives, and how to prove it](wk6/README.md): keys, lifting state,
   derived state, composition; then component tests with Vitest and Testing Library.
+- [Week 7 — what a framework buys you](wk7/README.md): routes, views, escaping and layouts in
+  Laravel; then controllers, named routes, 404s and the request object. Runs with Docker Compose Watch.

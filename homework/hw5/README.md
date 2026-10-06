@@ -48,6 +48,9 @@ Your styling doesn't have to match; the words on screen do. `src/TodoApp.jsx` ha
 numbered TODOs, one per feature. Stuck on one? Do the drill named next to it first — it is
 the same idea in a dozen lines, with a worked answer.
 
+The [walkthrough slides](../../slides/11b_hw5_walkthrough.pdf) from class go through
+features 1 and 2 one step at a time.
+
 | # | Feature | The idea, and the workshop drill that practices it | Points |
 |---|---|---|---|
 | 1 | **Remaining: N** — how many to-dos aren't done | Derived state: compute it, don't store it (drill 3) | 12 |
