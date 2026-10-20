@@ -8,3 +8,5 @@ Tuesday in-class exercises are released here, one directory per session.
   derived state, composition; then component tests with Vitest and Testing Library.
 - [Week 7 — what a framework buys you](wk7/README.md): routes, views, escaping and layouts in
   Laravel; then controllers, named routes, 404s and the request object. Runs with Docker Compose Watch.
+- [Week 9 — Eloquent: models, migrations, relationships](wk9/README.md): a migration, queries,
+  casts, belongsTo, hasMany, the N+1 problem and belongsToMany, in a Laravel app with MySQL.

@@ -45,7 +45,7 @@ sends you looking.
 — sign in with your RPI credentials when prompted, the same way as the CSS in Depth book.
 
 The docs tell you what each function does. This book, by a long-time Laravel teacher, tells
-you how the pieces fit, which is what makes the docs readable. It covers Laravel up to version 11 and we use
+you how the pieces fit, which is what makes the docs readable. It was written for Laravel 10 and we use
 13: the ideas below haven't changed, but version numbers, install steps and some details
 have. Use it for the mental model and the docs for specifics.
 
