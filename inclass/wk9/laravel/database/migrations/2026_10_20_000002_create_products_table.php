@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+// Drill 1 is in this file.
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('products', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->unsignedInteger('quantity')->default(0);
+
+            // Each product belongs to one category, or to none. This column holds that
+            // category's id; drill 6 teaches the model what it means.
+            $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
+
+            // TODO 1: a date column called expires_on. Some products never expire, so it
+            //         must be allowed to be empty:  ->nullable()
+          
+
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('products');
+    }
+};

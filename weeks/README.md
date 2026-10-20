@@ -9,5 +9,6 @@ One page per week: what we cover, what to read, and what is due.
 - [Week 5](week-05.md) — Sep 22 and 25
 - [Week 6](week-06.md) — Sep 29 and Oct 2
 - [Week 7](week-07.md) — Oct 6 and 9
+- [Week 9](week-09.md) — Oct 20 and 23 (week 8 was Quiz 1)
 
 Later weeks are posted as we reach them.

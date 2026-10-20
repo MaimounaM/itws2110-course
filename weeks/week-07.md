@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Tue 10/6** | Laravel I: what a framework buys you. The patterns behind every web framework — a front controller, a routing table, MVC, templates that escape by default, request objects handed to your code — each one a job week 3's `index.php` did by hand. Then Laravel's version of each. Drills 1–5 of the [week 7 workshop](../inclass/wk7/laravel/) for the last part of class. **In-class: push your copy of the workshop to your repo at the end of class**, with whatever you finished ([how](../inclass/wk7/README.md)). |
-| **Fri 10/9** | Laravel II: controllers, requests, and HTTP tests — drills 6–9 of the same workshop, then reading the drill checks as tests. *Quiz 1 review.* **Homework 5 due. Homework 6 assigned** — a Laravel app, two weeks. |
+| **Fri 10/9** | Laravel II: controllers, requests, and HTTP tests — drills 6–9 of the same workshop, then reading the drill checks as tests. *Quiz 1 review.* **Homework 5 due. [Homework 6](../homework/hw6/README.md) assigned** — the to-do list in Laravel, due Fri 10/23. |
 
 Both days use one new folder, [`inclass/wk7/laravel/`](../inclass/wk7/laravel/). It runs in
 Docker like week 3 — no PHP or Composer to install. Build it **before Tuesday**; the first run
@@ -45,7 +45,7 @@ sends you looking.
 — sign in with your RPI credentials when prompted, the same way as the CSS in Depth book.
 
 The docs tell you what each function does. This book, by a long-time Laravel teacher, tells
-you how the pieces fit, which is what makes the docs readable. It covers Laravel up to version 11 and we use
+you how the pieces fit, which is what makes the docs readable. It was written for Laravel 10 and we use
 13: the ideas below haven't changed, but version numbers, install steps and some details
 have. Use it for the mental model and the docs for specifics.
 
