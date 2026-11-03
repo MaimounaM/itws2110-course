@@ -13,3 +13,12 @@ PDF exports of the lecture decks, posted after each session.
 | 7 | Fri 9/18 | Flexbox, grid and breakpoints in Tailwind; Homework 3 | [PDF](7_css2.pdf) |
 | 8–9 | Tue 9/22 · Fri 9/25 | React: the render model, JSX, props, lists; then state, events and forms; Homework 4 and drill 11 | [PDF](8-9_react.pdf) |
 | 10–11 | Tue 9/29 · Fri 10/2 | React: state structure, keys, lifting state, composition; then component testing with Vitest | [PDF](10-11_react_state_and_tests_v4.pdf) |
+| 12 | Tue 10/6 | Laravel I: what a framework buys you — front controller, routing, MVC, Blade | [PDF](12_laravel_framework.pdf) |
+| 12 | Tue 10/6 | Homework 5 walkthrough | [PDF](11b_hw5_walkthrough.pdf) |
+| 13 | Fri 10/9 | Quiz 1 review | [PDF](13_quiz1_review.pdf) |
+| 15 | Tue 10/20 | ORM I: Eloquent, migrations and seeders | [PDF](15_eloquent_orm_final.pdf) |
+| 16 | Fri 10/23 | ORM II: relationships, eager loading, the N+1 problem | [PDF](16_eloquent_relationships_final.pdf) |
+| 18 | Fri 10/30 | React + Laravel, part 1: the finished product, the contract, and Homework 7 | [PDF](18_react_laravel_integration.pdf) |
+| 19 | Tue 11/3 | Security: the OWASP Top 10 and the six holes (Friday's lab and Homework 8) | [PDF](19_security.pdf) |
+| 19 | Tue 11/3 | OWASP Top 10:2025 reference: one slide per entry (what it is, examples, how Laravel helps), then the defenses in the pantry example | [PDF](19b_owasp_top10.pdf) |
+| 21 | Tue 11/10 | Authentication: logging in and who may do what (Homework 9); sessions vs. tokens, OAuth 2.0 and single sign-on | [PDF](21_authentication.pdf) |
